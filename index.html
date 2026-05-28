@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exterro — Executive Playbook Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #111010;
+  --ink2: #2a2825;
+  --ink3: #555250;
+  --rule: rgba(17,16,16,0.10);
+  --rule2: rgba(17,16,16,0.06);
+  --page: #faf9f6;
+  --surface: #ffffff;
+  --surface2: #f4f2ed;
+
+  --brand: #F04E23;
+  --brand-dark: #c73d18;
+  --brand-navy: #0F0E1A;
+  --brand-navy2: #1a1828;
+
+  --compliance: #1a3a5c;
+  --compliance-bg: #edf3fa;
+  --compliance-rule: #3b6fa0;
+
+  --hr: #5c1a3a;
+  --hr-bg: #f9edf4;
+  --hr-rule: #a03b6f;
+
+  --gov: #1a4a2a;
+  --gov-bg: #edf5f0;
+  --gov-rule: #3b8a5a;
+
+  --ma: #4a2e0a;
+  --ma-bg: #f7f0e6;
+  --ma-rule: #9a6820;
+
+  --cyber: #4a0a0a;
+  --cyber-bg: #f7e8e8;
+  --cyber-rule: #9a2020;
+
+  --ip: #2a0a4a;
+  --ip-bg: #f0eaf7;
+  --ip-rule: #6a20a0;
+
+  --lit: #0a3a3a;
+  --lit-bg: #e8f5f5;
+  --lit-rule: #208080;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--page);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* ── EXTERRO TOP BAR ── */
+.ext-topbar {
+  height: 4px;
+  background: linear-gradient(90deg, #F04E23 0%, #ff8c42 40%, #e91e8c 70%, #F04E23 100%);
+}
+
+/* ── EXTERRO NAV ── */
+.ext-nav {
+  background: var(--brand-navy);
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  gap: 24px;
+}
+.ext-logo {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.ext-logo-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+.ext-logo-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+  margin-left: 1px;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+.ext-nav-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255,255,255,0.12);
+}
+.ext-nav-label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.38);
+  text-transform: uppercase;
+}
+.ext-nav-spacer { flex: 1; }
+.ext-nav-tag {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: rgba(240,78,35,0.12);
+  border: 1px solid rgba(240,78,35,0.3);
+  padding: 4px 12px;
+  border-radius: 3px;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--brand-navy);
+  padding: 72px 4vw 60px;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 60%;
+  height: 100%;
+  background: radial-gradient(ellipse at 80% 50%, rgba(240,78,35,0.08) 0%, transparent 65%),
+              repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 18px,
+                rgba(255,255,255,0.015) 18px,
+                rgba(255,255,255,0.015) 19px
+              );
+}
+.masthead::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(240,78,35,0.4), rgba(240,78,35,0.15), transparent);
+}
+.masthead-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: end;
+}
+.masthead-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.masthead-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--brand);
+  opacity: 0.5;
+}
+.masthead h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5.5vw, 72px);
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.masthead h1 em {
+  font-style: italic;
+  color: var(--brand);
+  font-weight: 400;
+}
+.masthead-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  max-width: 520px;
+  font-weight: 300;
+  line-height: 1.75;
+}
+.masthead-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.stat-block { }
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+  display: block;
+}
+.stat-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  display: block;
+  margin-top: 4px;
+}
+.masthead-rule {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(240,78,35,0.5) 0%, rgba(240,78,35,0.15) 60%, transparent 100%);
+  margin: 40px 0 0;
+}
+
+/* ── KPI STRIP ── */
+.kpi-strip {
+  background: var(--brand-navy);
+  border-bottom: 3px solid rgba(240,78,35,0.2);
+  padding: 20px 4vw;
+}
+.kpi-inner {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+.kpi-item {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 16px 14px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.kpi-item:hover {
+  background: rgba(240,78,35,0.12);
+  border-color: rgba(240,78,35,0.35);
+}
+.kpi-cat {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1.3;
+}
+.kpi-desc {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.4;
+  font-weight: 300;
+}
+.kpi-pb-count {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--brand);
+  background: rgba(240,78,35,0.15);
+  padding: 2px 8px;
+  border-radius: 3px;
+  align-self: flex-start;
+}
+@media (max-width: 900px) {
+  .kpi-inner { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 600px) {
+  .kpi-inner { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── NAV BAR ── */
+.filter-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250,249,246,0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 4vw;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.filter-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.filter-inner::-webkit-scrollbar { display: none; }
+.fnav-logo {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink3);
+  letter-spacing: -0.01em;
+  padding: 14px 20px 14px 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-right: 1px solid var(--rule);
+  margin-right: 4px;
+}
+.fnav-logo span { color: var(--brand); }
+.fbtn {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--ink3);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 16px 16px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  display: inline-block;
+}
+.fbtn:hover { color: var(--ink); border-bottom-color: rgba(17,16,16,0.2); }
+.fbtn.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 500; }
+.fbtn-count { opacity: 0.5; font-size: 10px; margin-left: 2px; }
+.filter-spacer { flex: 1; }
+.filter-count {
+  font-size: 11px;
+  color: var(--ink3);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-left: 16px;
+}
+.filter-count strong { color: var(--ink); font-weight: 500; }
+
+/* ── BODY ── */
+.body-wrap {
+  padding: 56px 4vw 80px;
+}
+
+/* ── CATEGORY SECTION ── */
+.cat-section {
+  margin-bottom: 80px;
+}
+.cat-section.hidden { display: none; }
+
+.cat-header-row {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cat-label-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 12px 4px 8px;
+  border-radius: 3px;
+  align-self: flex-start;
+}
+.cat-label-pill .dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+.cat-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.cat-desc {
+  font-size: 14px;
+  color: var(--ink3);
+  line-height: 1.65;
+  font-weight: 400;
+}
+.cat-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 2px;
+}
+.cat-pb-count {
+  font-size: 11px;
+  color: var(--ink3);
+  white-space: nowrap;
+}
+
+/* ── PLAYBOOK GRID ── */
+.pb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.pb-grid .pb-card:last-child:nth-child(3n - 2) { grid-column: 1 / -1; }
+.pb-grid .pb-card:last-child:nth-child(3n - 1) { grid-column: span 2; }
+
+.pb-card {
+  background: var(--surface);
+  padding: 28px 28px 24px;
+  position: relative;
+  transition: background 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pb-card:hover { background: #fdfcfa; }
+
+.pb-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+}
+
+.pb-index {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--ink3);
+  line-height: 1;
+}
+.pb-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.3;
+}
+.pb-desc {
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.65;
+  font-weight: 400;
+  flex: 1;
+}
+.pb-value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink2);
+  line-height: 1.5;
+  padding-top: 10px;
+  border-top: 1px solid var(--rule);
+  letter-spacing: 0.01em;
+}
+
+/* Category color variants */
+.compliance .pb-card::before { background: var(--compliance-rule); }
+.compliance .pb-index { color: var(--compliance); }
+
+.hr .pb-card::before { background: var(--hr-rule); }
+.hr .pb-index { color: var(--hr); }
+
+.gov .pb-card::before { background: var(--gov-rule); }
+.gov .pb-index { color: var(--gov); }
+
+.ma .pb-card::before { background: var(--ma-rule); }
+.ma .pb-index { color: var(--ma); }
+
+.cyber .pb-card::before { background: var(--cyber-rule); }
+.cyber .pb-index { color: var(--cyber); }
+
+.ip .pb-card::before { background: var(--ip-rule); }
+.ip .pb-index { color: var(--ip); }
+
+.lit .pb-card::before { background: var(--lit-rule); }
+.lit .pb-index { color: var(--lit); }
+
+/* pills */
+.pill-compliance { background: var(--compliance-bg); color: var(--compliance); }
+.pill-hr { background: var(--hr-bg); color: var(--hr); }
+.pill-gov { background: var(--gov-bg); color: var(--gov); }
+.pill-ma { background: var(--ma-bg); color: var(--ma); }
+.pill-cyber { background: var(--cyber-bg); color: var(--cyber); }
+.pill-ip { background: var(--ip-bg); color: var(--ip); }
+.pill-lit { background: var(--lit-bg); color: var(--lit); }
+.dot-compliance { background: var(--compliance-rule); }
+.dot-hr { background: var(--hr-rule); }
+.dot-gov { background: var(--gov-rule); }
+.dot-ma { background: var(--ma-rule); }
+.dot-cyber { background: var(--cyber-rule); }
+.dot-ip { background: var(--ip-rule); }
+.dot-lit { background: var(--lit-rule); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--brand-navy);
+  padding: 40px 4vw;
+  text-align: center;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.04em;
+}
+.footer-rule {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: rgba(240,78,35,0.4);
+}
+
+/* ── MODAL ── */
+.modal-bg {
+  display: none; position: fixed; inset: 0;
+  background: rgba(15,14,26,0.65); z-index: 500;
+  align-items: center; justify-content: center;
+  padding: 12px;
+  backdrop-filter: blur(4px);
+}
+.modal-bg.open { display: flex; }
+
+.modal {
+  background: var(--surface); border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 14px; width: calc(100vw - 40px); max-width: 1200px;
+  height: calc(100vh - 24px); max-height: 960px;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.28);
+  animation: modalUp 0.2s ease both;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+@keyframes modalUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── MODAL HEADER ── */
+.modal-top {
+  padding: 18px 24px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+  flex-shrink: 0; background: var(--brand-navy);
+  border-radius: 14px 14px 0 0;
+}
+.modal-top-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+.modal-title-group { display: flex; flex-direction: column; gap: 2px; }
+.modal-eyebrow {
+  font-size: 9px; font-weight: 500; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3); line-height: 1;
+}
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px; font-weight: 600; color: #fff; line-height: 1.15;
+}
+.modal-cat-pill {
+  display: inline-flex; align-items: center;
+  font-size: 9px; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 4px 10px;
+  border-radius: 3px; flex-shrink: 0; white-space: nowrap;
+}
+.modal-close {
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.5); width: 28px; height: 28px; border-radius: 50%;
+  cursor: pointer; font-size: 12px; display: flex;
+  align-items: center; justify-content: center;
+  transition: all 0.15s; flex-shrink: 0;
+}
+.modal-close:hover { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+/* ── OUTCOME BAR ── */
+.modal-outcome-bar {
+  padding: 9px 24px;
+  background: rgba(240,78,35,0.05);
+  border-bottom: 1px solid rgba(240,78,35,0.15);
+  border-left: 3px solid var(--brand);
+  font-size: 12px; font-style: italic;
+  color: var(--ink2); flex-shrink: 0; line-height: 1.5;
+}
+
+/* ── TWO-PANEL BODY ── */
+.modal-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+/* Left panel — context */
+.modal-left {
+  width: 400px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--rule);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--surface);
+}
+.modal-left::-webkit-scrollbar { width: 3px; }
+.modal-left::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 3px; }
+
+/* Right panel — workflow */
+.modal-right {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--page);
+}
+.modal-right::-webkit-scrollbar { width: 3px; }
+.modal-right::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 3px; }
+
+.modal-right-header {
+  padding: 12px 20px 10px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface);
+  position: sticky; top: 0; z-index: 2;
+}
+
+/* Sections inside left panel */
+.modal-section {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--rule);
+}
+.modal-section:last-child { border-bottom: none; }
+.ms-label {
+  font-size: 9px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink3); margin-bottom: 9px;
+}
+
+/* Scenario */
+.scenario-box {
+  background: #fdf8f3; border-left: 3px solid var(--brand);
+  border-radius: 0 5px 5px 0; padding: 11px 14px;
+}
+.scenario-box p { font-size: 12.5px; color: var(--ink2); line-height: 1.75; }
+
+/* Triggers */
+.trigger-list { display: flex; flex-wrap: wrap; gap: 5px; }
+.trigger-chip {
+  font-size: 11px; padding: 3px 9px;
+  background: var(--surface2); border: 1px solid var(--rule);
+  border-radius: 20px; color: var(--ink2); line-height: 1.4;
+}
+
+/* Orgs */
+.org-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.org-item {
+  background: var(--surface2); border: 1px solid var(--rule);
+  border-radius: 5px; padding: 8px 10px;
+}
+.org-item-name { font-size: 11.5px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+.org-item-desc { font-size: 10.5px; color: var(--ink3); line-height: 1.35; }
+
+/* ICP */
+.icp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.icp-item {
+  background: var(--surface2); border: 1px solid var(--rule);
+  border-radius: 5px; padding: 8px 10px;
+}
+.icp-item-label {
+  font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink3); margin-bottom: 3px;
+}
+.icp-item-val { font-size: 11.5px; color: var(--ink); line-height: 1.35; }
+
+/* Steps (right panel) */
+.steps-list { list-style: none; padding: 16px 20px 20px; }
+.step-item { display: flex; gap: 12px; }
+.step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; width: 24px; }
+.step-circle {
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 1.5px solid var(--brand); background: var(--surface);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 600; color: var(--brand); flex-shrink: 0;
+}
+.step-line { width: 1.5px; background: var(--rule); flex: 1; min-height: 10px; margin: 0 auto; }
+.step-body { padding-bottom: 14px; padding-top: 2px; flex: 1; }
+.step-item:last-child .step-body { padding-bottom: 0; }
+.step-title { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+.step-desc { font-size: 12px; color: var(--ink2); line-height: 1.6; }
+
+/* Cards clickable */
+.pb-card { cursor: pointer; transition: box-shadow 0.15s, transform 0.15s; }
+.pb-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-1px); }
+
+@media (max-width: 768px) {
+  .masthead { padding: 52px 20px 44px; }
+  .masthead-inner { grid-template-columns: 1fr; gap: 32px; }
+  .masthead-stats { flex-direction: row; text-align: left; gap: 32px; }
+  .kpi-strip { padding: 20px; }
+  .kpi-inner { grid-template-columns: repeat(4, 1fr); }
+  .kpi-item { padding: 20px 16px; }
+  .kpi-item:first-child { padding-left: 0; }
+  .kpi-item:nth-child(2) { border-right: none; }
+  .filter-nav { padding: 0 20px; }
+  .body-wrap { padding: 40px 20px 60px; }
+  .pb-grid { grid-template-columns: 1fr; }
+  footer { padding: 32px 20px; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cat-section {
+  animation: fadeUp 0.4s ease both;
+}
+.cat-section:nth-child(1) { animation-delay: 0.05s; }
+.cat-section:nth-child(2) { animation-delay: 0.1s; }
+.cat-section:nth-child(3) { animation-delay: 0.15s; }
+.cat-section:nth-child(4) { animation-delay: 0.2s; }
+.cat-section:nth-child(5) { animation-delay: 0.25s; }
+.cat-section:nth-child(6) { animation-delay: 0.3s; }
+.cat-section:nth-child(7) { animation-delay: 0.35s; }
+</style>
+</head>
+<body>
+
+<!-- EXTERRO TOP BAR -->
+<div class="ext-topbar"></div>
+
+<!-- EXTERRO NAV -->
+<nav class="ext-nav">
+  <a class="ext-logo" href="#">
+    <span class="ext-logo-text">exterro</span><span class="ext-logo-dot"></span>
+  </a>
+  <div class="ext-nav-divider"></div>
+  <span class="ext-nav-label">Data Risk Management Platform</span>
+  <div class="ext-nav-spacer"></div>
+  <span class="ext-nav-tag">Executive Playbook Guide</span>
+</nav>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <div class="masthead-eyebrow">Exterro Data Risk Management Platform</div>
+      <h1>One Platform.<br><em>Enterprise-wide reach.</em></h1>
+      <p class="masthead-desc">A complete guide to how leading organizations deploy eDiscovery intelligence across every function that touches data — from regulatory response to M&A diligence.</p>
+    </div>
+    <div class="masthead-stats">
+      <div class="stat-block">
+        <span class="stat-num">28</span>
+        <span class="stat-label">Playbooks</span>
+      </div>
+    </div>
+  </div>
+  <div class="masthead-rule"></div>
+</div>
+
+
+<!-- NAV -->
+<nav class="filter-nav">
+  <div class="filter-inner">
+    <button class="fbtn active" data-cat="compliance">Compliance &amp; Regulatory <span class="fbtn-count">(8)</span></button>
+    <button class="fbtn" data-cat="hr">HR &amp; Investigations <span class="fbtn-count">(4)</span></button>
+    <button class="fbtn" data-cat="gov">Info Governance <span class="fbtn-count">(3)</span></button>
+    <button class="fbtn" data-cat="ma">M&amp;A <span class="fbtn-count">(2)</span></button>
+    <button class="fbtn" data-cat="cyber">Cybersecurity <span class="fbtn-count">(2)</span></button>
+    <button class="fbtn" data-cat="ip">IP &amp; Contracts <span class="fbtn-count">(2)</span></button>
+    <button class="fbtn" data-cat="lit">Litigation <span class="fbtn-count">(7)</span></button>
+    <div class="filter-spacer"></div>
+    <div class="filter-count"><strong>28</strong> playbooks</div>
+  </div>
+</nav>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- COMPLIANCE -->
+  <section class="cat-section compliance" data-cat="compliance" id="compliance">
+    <div class="cat-header-row">
+      <div class="cat-label-pill pill-compliance"><span class="dot dot-compliance"></span>8 Playbooks</div>
+      <div class="cat-heading">Compliance &amp; Regulatory</div>
+      <div class="cat-desc">Automates response to regulatory demands across every major framework — SEC, FINRA, HIPAA, DOJ, FTC, EEOC, FOIA, GDPR, CCPA, and subpoenas — collecting data, applying exemptions, flagging privilege, and assembling production-ready packages with a defensible audit trail, in hours rather than weeks.</div>
+    </div>
+    <div class="pb-grid">
+      <div class="pb-card">
+        <div class="pb-index">01</div>
+        <div class="pb-name">SEC / FINRA Audit Response</div>
+        <div class="pb-desc">When the SEC or FINRA issues a formal demand for trader communications — emails, Bloomberg chats, instant messages — across dozens of custodians, the platform identifies every relevant individual, collects data simultaneously across all connected sources, and assembles a fully indexed, regulator-ready production package with a complete chain-of-custody log.</div>
+        <div class="pb-value">30-day SEC windows met without weeks of manual collection.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">02</div>
+        <div class="pb-name">HIPAA / OCR Investigation</div>
+        <div class="pb-desc">Correlates access logs from EHR systems with email metadata and network activity to automatically construct a forensic timeline of every interaction with a patient record. Deviations from the hospital's access policies are highlighted with confidence scores, and the full evidence set is packaged for HHS Office for Civil Rights review.</div>
+        <div class="pb-value">Defensible patient data timelines without manual cross-system correlation.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">03</div>
+        <div class="pb-name">DOJ Antitrust / CID Response</div>
+        <div class="pb-desc">Runs concept-based searches to surface pricing strategy discussions, competitor references, and coordination signals that keyword searches miss. Correlates communication timestamps with known market events and assembles a fully documented Civil Investigative Demand response with privilege log, before the DOJ deadline.</div>
+        <div class="pb-value">Catches collusion signals even when parties deliberately avoid obvious terminology.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">04</div>
+        <div class="pb-name">FTC Investigation Response</div>
+        <div class="pb-desc">When the Federal Trade Commission investigates consumer protection or unfair trade practice allegations, the platform collects all relevant communications and business records across custodians, applies concept-based review to surface responsive content, and assembles a production package that meets FTC Civil Investigative Demand specifications.</div>
+        <div class="pb-value">FTC demands met with the same speed and defensibility as DOJ responses.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">05</div>
+        <div class="pb-name">EEOC / Employment Regulatory Response</div>
+        <div class="pb-desc">Responds to EEOC charges and state labor board investigations by collecting all relevant HR communications, performance records, and employment documentation across the organization. Privilege is applied to attorney-client discussions, and a structured response package is generated — including a chronological timeline of key employment events relevant to the charge.</div>
+        <div class="pb-value">Employment investigations that don't expose privileged HR strategy.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">06</div>
+        <div class="pb-name">FOIA Request Response</div>
+        <div class="pb-desc">Ingests each Freedom of Information Act request, parses scope using NLP, searches all agency repositories simultaneously, and auto-applies correct statutory exemption tags — b(3), b(5), b(6), b(7) — with documented legal justification for each. Redacted documents and a full redaction log are packaged automatically within the 20-business-day statutory window.</div>
+        <div class="pb-value">200+ FOIA requests a quarter — every deadline met, every exemption documented.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">07</div>
+        <div class="pb-name">Data Subject Rights Manager</div>
+        <div class="pb-desc">Handles the full spectrum of data subject rights requests — access, deletion, portability, rectification, and opt-out — regardless of the regulation triggering them (GDPR, CCPA, PIPEDA, LGPD, and others). Searches all connected data stores by subject identity, compiles a complete record inventory, applies the correct jurisdiction-specific exemptions, and auto-generates a compliant response package. Deletion requests trigger automated cross-system workflows with a confirmation audit trail.</div>
+        <div class="pb-value">Every data subject right, every regulation, every deadline — handled from one place.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">08</div>
+        <div class="pb-name">Subpoena Response</div>
+        <div class="pb-desc">Parses third-party subpoenas using NLP to extract custodians, date ranges, and subject matter scope. Automatically collects all relevant data, classifies documents as responsive or non-responsive, applies privilege review, and packages the final production — complete with cover letter, privilege log, and certificate of completeness — within the required deadline.</div>
+        <div class="pb-value">21-day subpoena deadlines met without burning attorney hours on manual scoping.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HR -->
+  <section class="cat-section hr" data-cat="hr" id="hr">
+    <div class="cat-header-row">
+      <div class="cat-label-pill pill-hr"><span class="dot dot-hr"></span>4 Playbooks</div>
+      <div class="cat-heading">HR &amp; Employee Investigations</div>
+      <div class="cat-desc">When misconduct is alleged, IP walks out the door, or a senior employee resigns unexpectedly, HR and legal need to move fast, quietly, and with a defensible evidence trail. These playbooks cover the full spectrum — from harassment investigations to forensic exit management.</div>
+    </div>
+    <div class="pb-grid">
+      <div class="pb-card">
+        <div class="pb-index">09</div>
+        <div class="pb-name">Workplace Misconduct Investigation</div>
+        <div class="pb-desc">Silently collects all communications between named parties across email, Slack, Teams, and any other connected channel — without alerting those individuals. Messages are clustered by topic and scored by sentiment so investigators immediately see the most relevant exchanges and escalating patterns.</div>
+        <div class="pb-value">Confidential investigations that surface what matters without reading thousands of messages.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">10</div>
+        <div class="pb-name">Employee Termination &amp; Data Theft</div>
+        <div class="pb-desc">Reconstructs a departing employee's complete data activity trail — every file opened, document emailed externally, USB device connected, cloud upload — for any pre-departure period. Generates a risk-scored evidence package quantifying IP exposure, ready for cease-and-desist or litigation.</div>
+        <div class="pb-value">Know precisely what IP left the building before the employee does.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">11</div>
+        <div class="pb-name">Whistleblower Investigation</div>
+        <div class="pb-desc">Runs concept-based searches across email, financial systems, and collaboration tools to surface anomalies in language, approvals, and payment patterns — even when deliberate obfuscation is used. Automatically builds an entity relationship graph linking subjects to vendors, approvals, and transactions.</div>
+        <div class="pb-value">A structured map of the alleged scheme, not an unorganized pile of documents.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">12</div>
+        <div class="pb-name">Employee Exit Management</div>
+        <div class="pb-desc">On resignation, automatically checks the employee against all active legal holds, assesses data access seniority, assigns a risk tier, and issues a tailored exit questionnaire. Responses are analyzed for signals of concern and the platform produces a recommended action plan before the last day of employment.</div>
+        <div class="pb-value">The data window closes when the employee leaves — this closes it first.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO GOV -->
+  <section class="cat-section gov" data-cat="gov" id="gov">
+    <div class="cat-header-row">
+      <div class="cat-label-pill pill-gov"><span class="dot dot-gov"></span>3 Playbooks</div>
+      <div class="cat-heading">Information Governance</div>
+      <div class="cat-desc">Data you don't need is a liability. Data you can't find is a risk. These playbooks help organizations defensibly delete what they shouldn't keep, enforce what regulations require them to retain, and surface sensitive data buried in legacy systems before it causes problems.</div>
+    </div>
+    <div class="pb-grid">
+      <div class="pb-card">
+        <div class="pb-index">13</div>
+        <div class="pb-name">ROT Data Cleanup</div>
+        <div class="pb-desc">Uses a three-phase funnel — surface scan, metadata scan, content scan — so full analysis runs only on high-probability candidates, not entire repositories. Items cleared for deletion receive a defensible certificate with a complete audit trail. Legal holds and retention obligations are automatically honored throughout.</div>
+        <div class="pb-value">Defensible deletion at scale — without the legal exposure of blind mass deletion.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">14</div>
+        <div class="pb-name">Records Retention Enforcement</div>
+        <div class="pb-desc">Maps all active communication channels — email, Teams, WhatsApp, mobile archivers — and immediately flags any not yet captured. Uses a three-phase funnel to assign retention categories across the full population. Compliance officers receive real-time alerts the moment any channel shows a capture gap or a record nears premature deletion.</div>
+        <div class="pb-value">Real-time visibility into every channel — and every gap — before regulators find them.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">15</div>
+        <div class="pb-name">Dark Data Discovery</div>
+        <div class="pb-desc">A three-phase funnel inventories and risk-rates entire repositories before opening a single document. Full content analysis — PII detection, IP classification, regulated-data recognition — runs only on confirmed high-risk items. Also serves as a data quality checkpoint before feeding enterprise data into AI models, removing duplicates, stale records, and sensitive content that should never enter a training pipeline.</div>
+        <div class="pb-value">Know what's in your data before migrating it — or before feeding it to AI.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- M&A -->
+  <section class="cat-section ma" data-cat="ma" id="ma">
+    <div class="cat-header-row">
+      <div class="cat-label-pill pill-ma"><span class="dot dot-ma"></span>2 Playbooks</div>
+      <div class="cat-heading">M&amp;A</div>
+      <div class="cat-desc">Due diligence windows are tight and the cost of missing a liability is enormous. These playbooks compress weeks of contract review into days, and surface every data governance gap in a newly acquired entity before it becomes the acquirer's problem.</div>
+    </div>
+    <div class="pb-grid">
+      <div class="pb-card">
+        <div class="pb-index">16</div>
+        <div class="pb-name">M&amp;A Due Diligence</div>
+        <div class="pb-desc">Ingests all target company documents and automatically extracts key contract terms — auto-renewal clauses, change-of-control provisions, liability caps, IP ownership, non-compete terms. Unusual or high-risk clauses are flagged for attorney review. Litigation history is cross-referenced against contract obligations, and a structured risk summary is generated.</div>
+        <div class="pb-value">Five years of contracts reviewed in days — not the three weeks you don't have.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">17</div>
+        <div class="pb-name">Post-Merger Data Integration Audit</div>
+        <div class="pb-desc">Conducts a complete data audit of the acquired entity's systems, mapping all existing data against the acquiring company's retention policies, legal hold obligations, and regulatory requirements. Surfaces every gap — records that should be on hold but aren't, data retained past schedule, unlicensed third-party data use — and produces a prioritized remediation plan.</div>
+        <div class="pb-value">Surface every liability you just acquired before it surfaces itself.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CYBERSECURITY -->
+  <section class="cat-section cyber" data-cat="cyber" id="cyber">
+    <div class="cat-header-row">
+      <div class="cat-label-pill pill-cyber"><span class="dot dot-cyber"></span>2 Playbooks</div>
+      <div class="cat-heading">Cybersecurity</div>
+      <div class="cat-desc">Threats from inside and outside the organization demand different responses — but both require the same thing: a complete, correlated picture of what happened, what data was involved, and what the legal obligations are. These playbooks deliver that picture before the clock runs out.</div>
+    </div>
+    <div class="pb-grid">
+      <div class="pb-card">
+        <div class="pb-index">18</div>
+        <div class="pb-name">Insider Threat Detection</div>
+        <div class="pb-desc">Ingests telemetry from all connected security and communication systems, establishes a behavioral baseline based on historical activity, and scores deviations in real time. When anomaly thresholds are crossed, it automatically assembles a complete evidence bundle — emails, file access logs, DLP events, and timeline — and escalates to legal and security with a risk rating.</div>
+        <div class="pb-value">The full picture assembled automatically — before the damage is done.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">19</div>
+        <div class="pb-name">Breach Incident Response</div>
+        <div class="pb-desc">Automatically triages all affected systems, identifies which data stores were accessed during the attack window, classifies data types involved (PII, health records, financial data), maps impacted subjects by jurisdiction, and drafts jurisdiction-specific breach notification reports — with a complete forensic package ready for regulators and outside counsel within the notification window.</div>
+        <div class="pb-value">GDPR's 72-hour clock starts ticking the moment you detect a breach. Be ready.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IP & CONTRACTS -->
+  <section class="cat-section ip" data-cat="ip" id="ip">
+    <div class="cat-header-row">
+      <div class="cat-label-pill pill-ip"><span class="dot dot-ip"></span>2 Playbooks</div>
+      <div class="cat-heading">IP &amp; Contracts</div>
+      <div class="cat-desc">Intellectual property theft and missed contract obligations are among the most financially damaging — and most preventable — risks an organization faces. These playbooks build court-ready IP cases automatically and ensure no renewal or obligation ever slips through unnoticed.</div>
+    </div>
+    <div class="pb-grid">
+      <div class="pb-card">
+        <div class="pb-index">20</div>
+        <div class="pb-name">IP Theft Investigation</div>
+        <div class="pb-desc">Automatically correlates every relevant data source — DLP alerts, email logs, access records, file hash comparisons — and reconstructs the complete exfiltration sequence with precise timestamps. Calculates the scope and estimated value of stolen IP, identifies whether data was forwarded or stored elsewhere, and generates a court-ready forensic report with full chain-of-custody documentation.</div>
+        <div class="pb-value">A court-ready forensic case, built automatically, before counsel is even briefed.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">21</div>
+        <div class="pb-name">Contract Obligation Tracking</div>
+        <div class="pb-desc">Ingests all contracts regardless of format or storage location, extracts key dates, renewal terms, and commercial obligations using NLP, and normalizes everything into a structured, searchable tracker. Contract owners are automatically alerted 90, 60, and 30 days before critical deadlines — with a plain-language summary of what action is required and what is at stake.</div>
+        <div class="pb-value">Never miss an auto-renewal again across 800+ active agreements.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LITIGATION -->
+  <section class="cat-section lit" data-cat="lit" id="lit">
+    <div class="cat-header-row">
+      <div class="cat-label-pill pill-lit"><span class="dot dot-lit"></span>7 Playbooks</div>
+      <div class="cat-heading">Litigation</div>
+      <div class="cat-desc">From the moment a complaint lands to the day a matter closes, litigation generates enormous data demands and enormous cost. These playbooks eliminate spoliation risk, reduce review spend by 60–80%, and give legal leadership the analytical foundation to make smarter decisions at every stage.</div>
+    </div>
+    <div class="pb-grid">
+      <div class="pb-card">
+        <div class="pb-index">22</div>
+        <div class="pb-name">Litigation Hold Management</div>
+        <div class="pb-desc">Automatically identifies all relevant custodians, issues jurisdiction-appropriate legal hold notices, and tracks acknowledgment in real time. Non-responders trigger automatic escalation to managers. Maintains a continuously updated, defensible audit trail showing every notice sent, acknowledgment received, and escalation triggered throughout the matter's lifetime.</div>
+        <div class="pb-value">Every notice tracked, every acknowledgment logged, zero spoliation risk.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">23</div>
+        <div class="pb-name">Early Case Assessment (ECA)</div>
+        <div class="pb-desc">Collects all communications and documents related to the dispute, identifies key factual issues, and evaluates claim strength against the internal documentary record. Estimates the cost of full review if the matter proceeds, models probable discovery scope, and produces a structured decision memo — giving leadership the information needed to choose the right strategy before committing to litigation.</div>
+        <div class="pb-value">Settle, fight, or counter — with the facts, not assumptions.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">24</div>
+        <div class="pb-name">eDiscovery Collection &amp; Preservation Tracking</div>
+        <div class="pb-desc">Creates a structured preservation and collection request for each identified data source, assigns it to the relevant data steward with clear instructions and deadlines, and tracks completion in real time. Every steward action is timestamped in an unalterable audit trail, maintaining a defensible chain of custody even without automated connectors. Escalations trigger automatically for overdue responses.</div>
+        <div class="pb-value">Defensible chain of custody — even when there is no connector.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">25</div>
+        <div class="pb-name">Document Review &amp; Categorization</div>
+        <div class="pb-desc">Runs AI-assisted first-pass across the entire document population using concept-based search, clustering, and continuous active learning. Near-duplicate documents are batched so one attorney decision applies to thousands of similar records. Review volume is reduced by 60–80% before any attorney opens a document. Privilege logs are auto-generated as a natural output of review — not a separate exercise.</div>
+        <div class="pb-value">2.4 million documents. A fraction of the cost. A fraction of the time.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">26</div>
+        <div class="pb-name">Deposition &amp; Witness Preparation</div>
+        <div class="pb-desc">Builds a witness-specific document profile for each deponent — surfacing all communications authored or received by the individual, flagging where their statements conflict with the documentary record, and identifying the highest-risk exhibits by content and context. Counsel receives a structured preparation package per witness, including a key event timeline and a ranked list of documents likely to be used by opposing counsel.</div>
+        <div class="pb-value">No witness walks into deposition blindsided by their own documents.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">27</div>
+        <div class="pb-name">Cross-Matter Analytics &amp; Spend Management</div>
+        <div class="pb-desc">Aggregates data across all active matters, maps custodian and collection overlap between cases, and identifies where document sets already collected can be reused — eliminating redundant collection costs. Provides a real-time dashboard of spend by matter, firm, phase, and task code. Flags billing anomalies and guideline deviations for GC review.</div>
+        <div class="pb-value">47 matters. 8 firms. One view — and no duplicate collection spend.</div>
+      </div>
+      <div class="pb-card">
+        <div class="pb-index">28</div>
+        <div class="pb-name">Settlement &amp; Damages Analysis</div>
+        <div class="pb-desc">Integrates claim data, product records, financial exposure calculations, and prior settlement comparables to build a dynamic damages model across all claimants. Models multiple settlement scenarios by participation rate, claim type, and jurisdiction. Identifies the documentary record most relevant to the mediator's likely focus areas.</div>
+        <div class="pb-value">Walk into mediation with a data-driven exposure range — not instinct and spreadsheets.</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal" id="modal">
+    <div class="modal-top">
+      <div class="modal-top-left">
+        <div class="modal-title-group">
+          <div class="modal-eyebrow" id="m-eyebrow"></div>
+          <div class="modal-title" id="m-title"></div>
+        </div>
+        <div class="modal-cat-pill" id="m-cat"></div>
+      </div>
+      <button class="modal-close" id="modal-close-btn">✕</button>
+    </div>
+    <div class="modal-outcome-bar" id="m-outcome"></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-text">Enterprise eDiscovery Platform &nbsp;·&nbsp; 28 playbooks</span>
+    <span class="footer-rule">One platform. Enterprise-wide value.</span>
+  </div>
+</footer>
+
+<script>
+// ── NAV SCROLL ──
+const sections = document.querySelectorAll('.cat-section');
+const btns = document.querySelectorAll('.fbtn');
+function setActive(cat) { btns.forEach(b => b.classList.toggle('active', b.dataset.cat === cat)); }
+const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) setActive(e.target.dataset.cat); }); }, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+btns.forEach(btn => { btn.addEventListener('click', () => { const t = document.getElementById(btn.dataset.cat); if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 60, behavior: 'smooth' }); setActive(btn.dataset.cat); }); });
+
+// ── PLAYBOOK DATA ──
+const PB = [
+  { id:'c01', num:'01', cat:'Compliance & Regulatory', pill:'pill-compliance',
+    title:'SEC / FINRA Audit Response',
+    scenario:'A hedge fund receives a formal SEC document request on a Monday morning — demanding all trader communications across email, Bloomberg, and instant messaging for 14 custodians over an 18-month window. The return date is 30 days away and the CCO has 2 people on her team.',
+    triggers:['Formal SEC subpoena or document request','FINRA examination notice','Suspicious trading pattern flagged','Whistleblower complaint filed with regulators','Routine broker-dealer examination cycle'],
+    orgs:[{n:'Broker-dealers',d:'Full-service and discount brokers handling institutional or retail trades'},{n:'Investment banks',d:'Firms with trading desks, M&A advisory, or underwriting'},{n:'Hedge funds',d:'Registered investment advisers managing client or proprietary capital'},{n:'Clearing firms',d:'Entities processing and settling trades on behalf of others'}],
+    icp:[{l:'Revenue',v:'$500M+ AUM or $50M+ annual revenue'},{l:'Pain point',v:'Manual collection across Bloomberg, email, IMs taking 3–6 weeks'},{l:'Geography',v:'US-registered entities; global firms with US operations'},{l:'Buyer',v:'Chief Compliance Officer, General Counsel'}],
+    steps:[{t:'Demand receipt & triage',d:'The formal SEC/FINRA request is immediately routed to legal, compliance, and IT. Counsel reviews scope, assesses deadlines, and assigns internal owners.'},{t:'Custodian & scope mapping',d:'The platform parses the demand to extract named individuals, date ranges, and communication types. All relevant custodians are mapped to connected data sources.'},{t:'Legal hold placement',d:'A preservation hold is instantly applied across all in-scope custodian data. Custodians receive hold notifications and obligations are logged.'},{t:'Simultaneous multi-source collection',d:'Data is collected concurrently across email, Bloomberg, instant messaging, and mobile archivers — compressing weeks into days.'},{t:'Deduplication & indexing',d:'Collected data is deduplicated, threaded, and fully indexed. Email families are grouped with attachments.'},{t:'Legal review & privilege screening',d:'Attorneys review for relevance. Privileged documents are identified, withheld, and logged with a legal justification for each.'},{t:'Production package assembly',d:'Responsive documents are assembled in regulator-ready format with Bates numbering, load files, and a complete chain-of-custody log.'},{t:'Regulator delivery',d:'The production package is submitted to the SEC or FINRA within the 30-day window.'}],
+    outcome:'30-day SEC windows met without weeks of manual collection — and a defensible chain of custody that holds up to scrutiny.' },
+
+  { id:'c02', num:'02', cat:'Compliance & Regulatory', pill:'pill-compliance',
+    title:'HIPAA / OCR Investigation',
+    scenario:'A hospital receives an HHS Office for Civil Rights investigation notice after a patient complains that their oncology records were accessed by staff in a different department. OCR wants a complete access timeline for that patient\'s record going back two years — across three hospital facilities.',
+    triggers:['HHS Office for Civil Rights investigation notice','Patient complaint about unauthorized record access','Internal audit flags anomalous EHR access','Breach notification trigger under HIPAA Breach Rule','State attorney general investigation'],
+    orgs:[{n:'Hospital systems',d:'Multi-facility health systems with thousands of EHR users'},{n:'Health insurers',d:'Payers handling claims, member records, and provider data'},{n:'Physician groups',d:'Large medical practices with shared EHR platforms'},{n:'Health IT vendors',d:'Business associates with access to PHI under BAAs'}],
+    icp:[{l:'Size',v:'500+ beds or 1,000+ covered employees'},{l:'Data volume',v:'1M+ patient records in EHR'},{l:'Pain point',v:'Cross-system correlation between EHR, email, and network logs done manually'},{l:'Buyer',v:'Chief Privacy Officer, Chief Compliance Officer, CISO'}],
+    steps:[{t:'OCR notice received',d:'An HHS OCR investigation notice or internal breach report is received. The compliance team initiates response protocol and engages outside counsel.'},{t:'Scope definition',d:'The platform identifies all patient records involved, the date range of alleged access, and every user who had system access during that window.'},{t:'EHR access log ingestion',d:'Access logs from all EHR systems — Epic, Cerner, Meditech — are ingested and normalized into a standard format.'},{t:'Cross-system correlation',d:'EHR access events are correlated with email metadata, network activity logs, and badge access records.'},{t:'Policy deviation analysis',d:'Each access event is evaluated against the organization\'s minimum-necessary access policies. Deviations are flagged with a confidence score.'},{t:'Forensic timeline construction',d:'A complete, chronological forensic timeline is assembled — showing who accessed what, when, from where, and whether it was within policy.'},{t:'Evidence package assembly',d:'The timeline, access logs, and deviation reports are packaged in OCR-submission format with a cover memorandum from counsel.'},{t:'Submission to HHS OCR',d:'The complete evidence package is submitted to the HHS Office for Civil Rights.'}],
+    outcome:'Defensible patient data timelines built in days — not weeks of manual cross-system work.' },
+
+  { id:'c03', num:'03', cat:'Compliance & Regulatory', pill:'pill-compliance',
+    title:'DOJ Antitrust / CID Response',
+    scenario:'Two competing pharmaceutical manufacturers receive DOJ Civil Investigative Demands the same week, alleging coordinated price increases for a generic drug. Each company must produce all internal pricing discussions, competitor references, and market coordination records — with a strict DOJ deadline and attorneys who suspect the parties used code language to avoid detection.',
+    triggers:['DOJ Civil Investigative Demand (CID) issued','Grand jury subpoena in antitrust investigation','EU or UK competition authority parallel inquiry','Merger review triggers second request','Whistleblower complaint to DOJ Antitrust Division'],
+    orgs:[{n:'Fortune 500 manufacturers',d:'Companies with pricing authority across product lines and geographies'},{n:'Financial services firms',d:'Banks and brokers subject to rate-fixing investigations'},{n:'Technology platforms',d:'Digital marketplaces under antitrust scrutiny for pricing algorithms'},{n:'Healthcare systems',d:'Hospital networks investigated for market allocation agreements'}],
+    icp:[{l:'Revenue',v:'$1B+ annual revenue'},{l:'Industry',v:'Financial services, tech, healthcare, manufacturing'},{l:'Pain point',v:'Keyword searches miss deliberate code language; manual timestamp correlation impossible at scale'},{l:'Buyer',v:'General Counsel, Chief Antitrust Counsel, outside Antitrust boutique'}],
+    steps:[{t:'CID received & triaged',d:'The DOJ Civil Investigative Demand is received and immediately triaged by antitrust counsel. Scope, deadlines, and custodian list are extracted.'},{t:'Hold & preservation',d:'Legal holds are placed on all in-scope custodians. The platform maps every connected data source for each custodian.'},{t:'Concept-based search',d:'The platform runs concept-based searches to surface pricing discussions, competitor references, and coordination signals — not just keyword matching.'},{t:'Timeline correlation',d:'Communication timestamps are correlated with known market pricing events to surface suspicious alignment even when explicit coordination language is absent.'},{t:'Privilege review',d:'Attorney-client and work product materials are identified and segregated. Multi-layer privilege detection is applied.'},{t:'Production assembly',d:'The fully documented CID response is assembled with privilege log and delivered before the DOJ deadline.'}],
+    outcome:'Catches collusion signals even when parties deliberately avoid obvious terminology — and a defensible response before the DOJ deadline.' },
+
+  { id:'c04', num:'04', cat:'Compliance & Regulatory', pill:'pill-compliance',
+    title:'FTC Investigation Response',
+    scenario:'A large e-commerce platform receives an FTC Civil Investigative Demand alleging unfair and deceptive trade practices in its subscription cancellation flow. The FTC wants all internal communications, user research, A/B test data, and design decision records related to the cancellation experience — going back three years.',
+    triggers:['FTC Civil Investigative Demand issued','FTC pre-suit notification of enforcement action','State AG consumer protection investigation','Internal audit surfaces potential dark pattern in UX','Class action complaint triggers parallel regulatory review'],
+    orgs:[{n:'E-commerce and subscription platforms',d:'Companies with online cancellation or billing flows under FTC scrutiny'},{n:'Technology companies',d:'Platforms subject to FTC Section 5 unfair practices investigation'},{n:'Financial services',d:'Lenders and fintechs subject to FTC consumer financial protection enforcement'},{n:'Healthcare platforms',d:'Digital health companies with subscription billing and data practices'}],
+    icp:[{l:'Industry',v:'Technology, e-commerce, financial services, healthcare'},{l:'Pain point',v:'Internal design and A/B test records scattered across engineering, product, and analytics tools'},{l:'Risk',v:'FTC consent decree; civil penalties; mandatory business practice changes'},{l:'Buyer',v:'General Counsel, Chief Compliance Officer, outside FTC counsel'}],
+    steps:[{t:'CID received & scope extracted',d:'The FTC CID is received and NLP parses the scope — identifying custodians, date ranges, and the specific business practices under investigation.'},{t:'Cross-functional custodian mapping',d:'Custodians are identified across legal, engineering, product, design, marketing, and analytics.'},{t:'Multi-system collection',d:'Data is collected from email, Slack, Jira, Figma, analytics dashboards, A/B testing platforms, and user research repositories.'},{t:'Responsiveness classification',d:'Documents are classified as responsive or non-responsive. UX research and design rationale documents are flagged for attorney review.'},{t:'Privilege review',d:'Attorney-client communications about regulatory risk are identified and protected.'},{t:'Production assembly',d:'A complete FTC CID response is assembled with cover letter, privilege log, and certificate of completeness.'}],
+    outcome:'FTC demands met with the same speed and defensibility as DOJ responses — even when relevant data spans engineering, product, and analytics systems.' },
+
+  { id:'c05', num:'05', cat:'Compliance & Regulatory', pill:'pill-compliance',
+    title:'EEOC / Employment Regulatory Response',
+    scenario:'A large retailer receives an EEOC charge from a former district manager alleging systemic gender discrimination in promotion decisions across five regional markets. The EEOC requests five years of promotion records, performance reviews, compensation data, and manager communications for all similarly situated employees.',
+    triggers:['EEOC charge of discrimination received','State civil rights agency investigation notice','DOL wage and hour audit initiated','OFCCP compliance review for federal contractors','Class action EEOC charges alleging systemic discrimination'],
+    orgs:[{n:'Large retail chains',d:'Employers with large workforces and complex promotion structures'},{n:'Financial institutions',d:'Banks with compensation and promotion practices under scrutiny'},{n:'Healthcare systems',d:'Hospitals with physician compensation and promotion disparities'},{n:'Technology companies',d:'Tech firms with gender and race equity challenges in engineering and leadership'}],
+    icp:[{l:'Size',v:'1,000+ employees; multi-location operations'},{l:'Pain point',v:'Five years of HR data across multiple systems with no unified view'},{l:'Risk',v:'Systemic discrimination finding; class certification; back pay and compensatory damages'},{l:'Buyer',v:'Chief HR Officer, General Counsel, outside employment counsel'}],
+    steps:[{t:'EEOC charge received & counsel engaged',d:'The EEOC charge is received and outside employment counsel is immediately engaged.'},{t:'Litigation hold issued',d:'Preservation holds are placed on all HR records, performance reviews, compensation data, and manager communications for in-scope custodians.'},{t:'Data collection across HR systems',d:'Data is collected from HRIS, ATS, performance management systems, compensation platforms, and manager email accounts.'},{t:'Comparator analysis',d:'The platform identifies all similarly situated employees and compiles their promotion, performance, and compensation history.'},{t:'Privilege protection',d:'Communications between HR, management, and legal counsel are identified and protected as attorney-client privilege or work product.'},{t:'Position statement preparation',d:'The platform produces a structured data export supporting the EEOC position statement.'},{t:'Production to EEOC',d:'All non-privileged responsive records are produced to the EEOC with a complete privilege log.'}],
+    outcome:'Employment investigations that protect privileged HR strategy while producing a complete, defensible record to the EEOC.' },
+
+  { id:'c06', num:'06', cat:'Compliance & Regulatory', pill:'pill-compliance',
+    title:'FOIA Request Response',
+    scenario:'A federal environmental agency receives 240 FOIA requests in a single quarter — many from journalists, advocacy groups, and litigants targeting the same internal rulemaking communications. FOIA officers are manually searching six different document repositories, applying exemptions inconsistently, and missing the 20-business-day statutory deadline on nearly half of all requests.',
+    triggers:['FOIA request received from journalist or advocacy group','Congressional inquiry cites FOIA records','Litigant files FOIA as pre-suit discovery tool','Agency FOIA backlog triggers oversight inquiry','DOJ FOIA litigation filed for failure to respond'],
+    orgs:[{n:'Federal agencies',d:'Cabinet-level and independent agencies with high FOIA request volume'},{n:'State agencies',d:'State bodies subject to state public records laws'},{n:'Federal contractors',d:'Companies subject to FOIA as government contractors'},{n:'Research institutions',d:'Universities receiving federal funding subject to FOIA obligations'}],
+    icp:[{l:'Volume',v:'100+ FOIA requests per quarter'},{l:'Pain point',v:'Manual search of disconnected systems; inconsistent exemption application; chronic deadline failures'},{l:'Risk',v:'FOIA litigation; adverse media coverage; Congressional oversight scrutiny'},{l:'Buyer',v:'Chief FOIA Officer, General Counsel, Chief Records Officer'}],
+    steps:[{t:'Request receipt & NLP parsing',d:'Each FOIA request is ingested and NLP extracts the scope — subject matter, date range, document types, and named individuals.'},{t:'Simultaneous repository search',d:'All agency repositories are searched simultaneously using the parsed scope parameters.'},{t:'Responsiveness classification',d:'Documents are classified as responsive, non-responsive, or partially responsive.'},{t:'Exemption tag application',d:'The platform auto-applies FOIA exemption tags — b(3), b(5), b(6), b(7) — with documented legal justification for each.'},{t:'Automated redaction',d:'Exempted content is redacted. The redaction log records every redaction with the applicable exemption.'},{t:'Production package assembly',d:'Responsive, redacted documents are assembled with a cover letter specifying volume released, withheld, and exemptions applied.'},{t:'Statutory deadline release',d:'The complete production is released within the 20-business-day statutory window.'}],
+    outcome:'200+ FOIA requests a quarter — every statutory deadline met, every exemption documented and defensible.' },
+
+  { id:'c07', num:'07', cat:'Compliance & Regulatory', pill:'pill-compliance',
+    title:'Data Subject Rights Manager',
+    scenario:'A global e-commerce company operating in 28 countries receives 1,400 data subject requests in a single month — access requests from EU residents, deletion requests from California consumers, portability requests from Brazilian users, and opt-outs from Canadian residents. Each has a different legal basis, a different deadline, and a different response format. The privacy team has 6 people.',
+    triggers:['Data subject submits access request via web portal','Deletion request received from EU or California resident','GDPR portability request filed','Rectification request for inaccurate personal data','Regulatory inquiry about DSR response times'],
+    orgs:[{n:'Global tech platforms',d:'Consumer-facing companies with large EU and California user bases'},{n:'E-commerce retailers',d:'Online merchants with international customer data'},{n:'Financial services',d:'Banks and fintechs processing consumer personal data'},{n:'HR platforms',d:'SaaS companies processing employee data across jurisdictions'}],
+    icp:[{l:'User base',v:'100,000+ consumer users across multiple jurisdictions'},{l:'Regulation exposure',v:'GDPR, CCPA, PIPEDA, LGPD — 2+ regulations simultaneously'},{l:'Pain point',v:'Manual subject identity search across 10+ systems; missed 30/45-day deadlines'},{l:'Buyer',v:'Chief Privacy Officer, Data Protection Officer, Head of Legal Operations'}],
+    steps:[{t:'Request received & regulation identified',d:'The request arrives and the platform identifies the applicable regulation based on the requester\'s jurisdiction and right asserted.'},{t:'Identity verification',d:'The requester\'s identity is verified using the configured workflow before processing begins.'},{t:'Cross-system subject identity search',d:'The platform searches all connected data stores for any records associated with the verified subject identity.'},{t:'Record inventory compilation',d:'All records containing the subject\'s personal data are compiled, categorized by data type, system, and processing purpose.'},{t:'Jurisdiction-specific exemption application',d:'The platform applies the correct exemptions for the applicable regulation and documents the legal basis for any data withheld.'},{t:'Response package generation',d:'For access: a structured data export. For deletion: a cross-system deletion workflow with confirmation. For portability: a machine-readable export.'},{t:'Response delivery within statutory deadline',d:'The response is delivered within the regulatory deadline: 30 days for GDPR, 45 days for CCPA.'}],
+    outcome:'Every data subject right, every regulation, every deadline — handled from one workflow, with a complete audit trail for every request.' },
+
+  { id:'c08', num:'08', cat:'Compliance & Regulatory', pill:'pill-compliance',
+    title:'Subpoena Response',
+    scenario:'A national bank receives 340 third-party subpoenas in a year — from divorce attorneys seeking account records, personal injury litigants seeking payment histories, and federal prosecutors seeking transaction records. Each has a different return date, a different scope, and a different production format. The legal operations team has no standardized workflow.',
+    triggers:['Third-party subpoena received in litigation between other parties','Grand jury subpoena from federal prosecutor','State court subpoena duces tecum','Regulatory agency administrative subpoena (IRS, CFTC, OCC)','Arbitration proceeding document demand'],
+    orgs:[{n:'Financial institutions',d:'Banks and brokers frequently subpoenaed as record-holders'},{n:'Telecom providers',d:'Carriers subpoenaed for call records and communications'},{n:'Technology platforms',d:'Email, messaging, and cloud storage providers'},{n:'Healthcare systems',d:'Hospitals subpoenaed for patient records in personal injury matters'}],
+    icp:[{l:'Volume',v:'50+ subpoenas per year'},{l:'Industry',v:'Financial services, technology, telecommunications, healthcare'},{l:'Pain point',v:'Each subpoena manually parsed; no standardized process or audit trail'},{l:'Buyer',v:'General Counsel, Litigation Operations, outside litigation counsel'}],
+    steps:[{t:'Subpoena received & logged',d:'The subpoena is received and logged. The return date and meet-and-confer requirements are identified.'},{t:'NLP scope extraction',d:'The platform uses NLP to parse the subpoena and extract structured search parameters: custodians, date ranges, subject matter, and document types.'},{t:'Legal hold & collection',d:'A preservation hold is applied to in-scope custodians. Data is collected from all relevant sources.'},{t:'Responsiveness classification',d:'Documents are classified as responsive or non-responsive. Partially responsive documents are flagged for attorney review.'},{t:'Privilege review',d:'Attorney-client and work product documents are identified and withheld. A privilege log is prepared.'},{t:'Production package assembly',d:'Responsive documents are assembled with Bates numbering, load files, and a certificate of completeness.'},{t:'Timely production',d:'The production package is delivered by the return date.'}],
+    outcome:'Subpoena to production package — automated, defensible, and on time — with a complete record for any follow-up challenge.' },
+
+  // HR
+  { id:'h01', num:'09', cat:'HR & Employee Investigations', pill:'pill-hr',
+    title:'Workplace Misconduct Investigation',
+    scenario:'A senior director at a financial services firm files a formal harassment complaint naming two colleagues, including one who is her direct manager. HR and legal must investigate immediately — but the accused manager has elevated IT access and must not be alerted that an investigation is underway.',
+    triggers:['HR hotline complaint alleging harassment or discrimination','Manager report of policy violation','Anonymous tip via ethics line','Employee grievance escalated to HR leadership','Legal demand letter from employee\'s attorney'],
+    orgs:[{n:'Large enterprises',d:'Companies with 1,000+ employees where misconduct can be buried across systems'},{n:'Financial institutions',d:'Banks with regulatory obligations around employee conduct monitoring'},{n:'Technology companies',d:'Firms with Slack-heavy cultures and distributed remote workforces'},{n:'Healthcare employers',d:'Hospital systems with complex hierarchies and patient safety implications'}],
+    icp:[{l:'Size',v:'1,000+ employees'},{l:'Communication stack',v:'Email + Slack/Teams + at least one other collaboration tool'},{l:'Pain point',v:'Manual review takes weeks and risks tipping off the subject'},{l:'Buyer',v:'Chief HR Officer, Chief Legal Officer, Chief Compliance Officer'}],
+    steps:[{t:'Complaint received & investigation authorized',d:'The complaint arrives via HR hotline or manager escalation. Legal counsel authorizes the investigation and designates the investigation team.'},{t:'Covert custodian identification',d:'The platform identifies all relevant custodians without triggering alerts or notifications to those individuals.'},{t:'Silent multi-channel collection',d:'Communications are collected across email, Slack, Teams, and any other connected channel without alerting the named parties.'},{t:'Topic clustering',d:'Messages are clustered by topic automatically — isolating clusters relevant to the alleged conduct.'},{t:'Sentiment scoring',d:'Each message cluster is scored by sentiment, surfacing escalating negative patterns and power dynamics.'},{t:'Investigator review',d:'Investigators receive a prioritized dashboard — highest-scoring exchanges first — rather than thousands of raw messages.'},{t:'Evidence package assembly',d:'Relevant communications are assembled into a structured evidence package with metadata and timestamps.'},{t:'Investigation report',d:'Counsel or HR leadership prepares the investigation report supported by the platform\'s evidence package.'}],
+    outcome:'Confidential investigations that surface what matters — without tipping off the subject or spending weeks reading thousands of messages.' },
+
+  { id:'h02', num:'10', cat:'HR & Employee Investigations', pill:'pill-hr',
+    title:'Employee Termination & Data Theft',
+    scenario:'A principal engineer at a SaaS company resigns on a Friday afternoon and starts at a direct competitor the following Monday. Over the weekend, the CISO notices that 4.2GB of files were transferred to a personal Dropbox account in the 10 days before resignation. By Monday morning, legal needs a complete forensic picture before sending a cease-and-desist.',
+    triggers:['Employee resignation notice received','IT alert: large file transfer or unusual cloud upload','DLP system flags external email of sensitive documents','Competitor announces hire of your key employee','Exit interview raises red flags about data access'],
+    orgs:[{n:'Technology companies',d:'Software firms with source code, product roadmaps, and customer data at risk'},{n:'Life sciences companies',d:'Pharma and biotech with proprietary research and clinical data'},{n:'Financial institutions',d:'Banks with trading strategies and client data'},{n:'Manufacturing companies',d:'Firms with trade secrets, formulas, and manufacturing processes'}],
+    icp:[{l:'Industry',v:'Technology, life sciences, financial services, professional services'},{l:'Employee profile',v:'Employees with access to trade secrets, source code, client lists, or pricing data'},{l:'Pain point',v:'Data theft window closes on last day; manual log review takes weeks'},{l:'Buyer',v:'General Counsel, CISO, Chief People Officer, outside IP litigation counsel'}],
+    steps:[{t:'Departure trigger identified',d:'A resignation notice, termination decision, or security alert triggers the investigation workflow.'},{t:'Pre-departure window defined',d:'Counsel defines the investigation window — typically 90 days prior to resignation notice.'},{t:'Activity trail reconstruction',d:'The platform reconstructs the complete data activity trail: every file opened, every document emailed externally, every USB device connected, every cloud storage upload.'},{t:'External transmission analysis',d:'All external transmissions — email to personal accounts, uploads to Dropbox, Google Drive — are identified and files catalogued.'},{t:'File hash comparison',d:'Files transmitted externally are compared against the organization\'s IP catalog using file hashing.'},{t:'IP exposure quantification',d:'The platform calculates the scope and estimated value of potentially compromised IP.'},{t:'Risk-scored evidence package',d:'A risk-scored evidence package is generated, prioritizing the highest-value IP exposures and clearest evidence of intentional exfiltration.'},{t:'Cease-and-desist & litigation support',d:'The forensic report is formatted for use in cease-and-desist proceedings or TRO applications.'}],
+    outcome:'Know precisely what IP left the building — with a court-ready forensic report assembled before the employee\'s first day at the competitor.' },
+
+  { id:'h03', num:'11', cat:'HR & Employee Investigations', pill:'pill-hr',
+    title:'Whistleblower Investigation',
+    scenario:'An anonymous tip through the company\'s ethics hotline alleges that a VP of Finance has been approving vendor invoices from a shell company he controls — over $2.3M in the past 18 months. The board directs outside counsel to investigate independently, without informing the VP or his direct reports.',
+    triggers:['Anonymous ethics hotline tip received','SEC whistleblower complaint filed','Internal audit surfaces payment anomalies','Board or audit committee requests independent investigation','Regulatory inquiry about financial reporting accuracy'],
+    orgs:[{n:'Publicly traded companies',d:'Companies with SEC reporting obligations and audit committee oversight'},{n:'Financial institutions',d:'Banks with regulatory obligations around financial integrity'},{n:'Government contractors',d:'Firms with False Claims Act exposure'},{n:'Private equity portfolio companies',d:'Portfolio companies with reporting obligations to sponsors'}],
+    icp:[{l:'Size',v:'$500M+ revenue; publicly traded or PE-backed'},{l:'Pain point',v:'Broad scope with no clear keywords; subject may use code language'},{l:'Risk',v:'SEC enforcement, shareholder litigation, reputational damage'},{l:'Buyer',v:'Audit Committee, General Counsel, outside white collar counsel'}],
+    steps:[{t:'Tip received & investigation authorized',d:'The ethics tip is received and the board or audit committee authorizes an independent investigation. Outside counsel is engaged.'},{t:'Covert scope definition',d:'The platform runs broad concept-based searches without alerting the subject.'},{t:'Entity relationship graph construction',d:'The platform automatically builds an entity graph linking the VP to vendors, approvals, counterparties, and transactions.'},{t:'Payment anomaly analysis',d:'Vendor payment patterns are analyzed for anomalies — shell company characteristics, round-number invoices, approval bypasses.'},{t:'Communication analysis',d:'Communications between the VP, vendors, finance staff, and approvers are analyzed for suspicious patterns.'},{t:'Evidence package assembly',d:'A structured evidence package is assembled: entity graph, payment timeline, communication clusters, and supporting documents.'},{t:'Investigation report',d:'Outside counsel prepares the investigation report with the platform\'s evidence package as the factual foundation.'}],
+    outcome:'A structured map of the alleged scheme — not an unorganized pile of documents — ready for outside counsel to present to the board.' },
+
+  { id:'h04', num:'12', cat:'HR & Employee Investigations', pill:'pill-hr',
+    title:'Employee Exit Management',
+    scenario:'A VP of Sales with 11 years of tenure and access to pricing models, customer contracts, and CRM data gives two weeks notice. She has been on two active litigation holds. IT hasn\'t been notified. No exit questionnaire has been issued. Her last day is Friday.',
+    triggers:['Senior employee resignation notice submitted','Termination of employee with elevated data access','Active legal hold on departing employee identified','IT flags departing employee\'s elevated access profile','Competitor announces hire of departing senior employee'],
+    orgs:[{n:'Technology companies',d:'SaaS and software companies with IP-rich senior employees'},{n:'Financial institutions',d:'Banks with trading strategy and client data access among senior staff'},{n:'Professional services',d:'Consulting and law firms with client relationship and methodology exposure'},{n:'Pharma and life sciences',d:'Companies with R&D data and clinical trial access among senior scientists'}],
+    icp:[{l:'Trigger',v:'Senior employee departure with elevated data access or active legal hold'},{l:'Pain point',v:'Fragmented exit process across HR, legal, and IT with no coordination'},{l:'Risk',v:'Spoliation of hold data; IP exfiltration; unaddressed confidentiality obligations'},{l:'Buyer',v:'General Counsel, Chief HR Officer, Chief Information Security Officer'}],
+    steps:[{t:'Resignation received & hold check',d:'When a resignation is submitted, the platform automatically checks the employee against all active legal holds and flags any preservation obligations.'},{t:'Data access risk assessment',d:'The platform assesses the employee\'s data access seniority and assigns a risk tier.'},{t:'Tailored exit questionnaire',d:'Based on the risk tier, a tailored exit questionnaire is issued covering data handling, device usage, and knowledge transfer.'},{t:'Response analysis',d:'Questionnaire responses are analyzed for signals of concern — evasive answers, references to data taken externally.'},{t:'Recommended action plan',d:'The platform produces a recommended action plan before the last day.'},{t:'Hold compliance documentation',d:'All hold obligations are documented and transferred to the appropriate custodian before the employee\'s departure.'}],
+    outcome:'The data window closes when the employee leaves — this closes it first.' },
+
+  // INFO GOV
+  { id:'g01', num:'13', cat:'Info Governance', pill:'pill-gov',
+    title:'ROT Data Cleanup',
+    scenario:'A global manufacturer\'s legal team wants to defensibly delete a decade of redundant, obsolete, and trivial data — 47TB across 12 systems. Storage costs $2.1M annually. But three active litigations, two regulatory investigations, and a patchwork of retention schedules mean they cannot simply delete anything without risking sanctions.',
+    triggers:['Cloud migration requires legacy data rationalization','Annual storage cost review identifies bloated repositories','Legal department requests defensible deletion program','Data breach response reveals excessive data retention','Privacy audit finds data retained beyond legal requirement'],
+    orgs:[{n:'Global manufacturers',d:'Companies with decades of unstructured data across file shares and email archives'},{n:'Financial services firms',d:'Banks with regulatory retention obligations and large data estates'},{n:'Healthcare systems',d:'Hospital networks with complex HIPAA and state law retention requirements'},{n:'Government agencies',d:'Federal and state agencies under records management obligations'}],
+    icp:[{l:'Data volume',v:'10TB+ of legacy unstructured data'},{l:'Pain point',v:'Cannot delete blindly — active holds, regulatory requirements, and litigation risk require defensible classification'},{l:'Cost',v:'$1M+ annual storage cost for data of uncertain retention status'},{l:'Buyer',v:'General Counsel, Chief Information Officer, Chief Records Officer'}],
+    steps:[{t:'Phase 1: Surface scan',d:'The platform inspects repository names, database labels, and drive identifiers to eliminate whole repositories with no ROT exposure — without opening any files.'},{t:'Phase 2: Metadata scan',d:'File names, folder paths, timestamps, owner records, and file type distributions are analyzed to filter out the bulk without reading content.'},{t:'Phase 3: Content scan',d:'Full content analysis runs only on high-probability candidates from Phase 2 — a fraction of the original volume.'},{t:'Legal hold cross-reference',d:'Every candidate for deletion is cross-referenced against all active legal holds and regulatory retention schedules before any deletion is authorized.'},{t:'Defensible deletion certification',d:'Items cleared for deletion receive a defensible certificate with a complete audit trail.'}],
+    outcome:'Defensible deletion at scale — without the legal exposure of blind mass deletion.' },
+
+  { id:'g02', num:'14', cat:'Info Governance', pill:'pill-gov',
+    title:'Records Retention Enforcement',
+    scenario:'A FINRA-regulated broker-dealer is required under Rule 4511 to retain all client-facing communications for seven years. A new compliance review reveals that advisers have been using personal WhatsApp accounts and Signal for client communications — none of which are being captured by the firm\'s official archiving systems.',
+    triggers:['Regulatory examination flags communication capture gaps','New communication channel adopted without IT approval','Employee WhatsApp or Signal use identified','FINRA or SEC inquiry about communication archiving','Annual compliance audit of retention coverage'],
+    orgs:[{n:'Broker-dealers',d:'FINRA-regulated firms with strict communication retention requirements'},{n:'Investment advisers',d:'SEC-registered advisers with electronic communication retention obligations'},{n:'Healthcare systems',d:'Covered entities with HIPAA communication retention requirements'},{n:'Law firms',d:'Firms with ethical obligations to retain client communications'}],
+    icp:[{l:'Regulation',v:'FINRA Rule 4511, SEC Rule 17a-4, HIPAA, state bar rules'},{l:'Pain point',v:'No unified view of what channels are being captured and what is falling through the gaps'},{l:'Risk',v:'Regulatory sanctions for failure to retain; adverse inference in litigation'},{l:'Buyer',v:'Chief Compliance Officer, Chief Records Officer, General Counsel'}],
+    steps:[{t:'Phase 1: Channel mapping',d:'The platform maps all active communication channels and immediately flags any not yet captured.'},{t:'Phase 2: Metadata scan',d:'Message headers, sender/recipient data, timestamps, and channel identifiers are inspected to assign retention categories without touching message content.'},{t:'Phase 3: Content scan',d:'Message body and attachments are read only for records that metadata alone could not categorize.'},{t:'Gap alert issuance',d:'Compliance officers receive real-time alerts the moment any channel shows a capture gap or a record nears premature deletion.'},{t:'Remediation workflow',d:'For each gap identified, a remediation workflow is issued — configuring the missing archiver or retrieving unarchived records.'}],
+    outcome:'Real-time visibility into every channel — and every gap — before regulators find them.' },
+
+  { id:'g03', num:'15', cat:'Info Governance', pill:'pill-gov',
+    title:'Dark Data Discovery',
+    scenario:'Before migrating 15TB of legacy file share data to a new cloud environment, the CIO needs to know exactly what sensitive data is in it. The file share contains 12 years of untagged, unstructured data — contracts, HR files, customer PII, financial models, R&D documents — with no metadata and no classification. The cloud environment has different security controls and the company cannot migrate regulated data into it without a prior review.',
+    triggers:['Cloud migration project initiated','AI model training data governance audit','Pre-M&A data room preparation','Privacy audit requires sensitive data mapping','Storage rationalization project identifies unknown repositories'],
+    orgs:[{n:'Global enterprises pre-migration',d:'Companies moving from on-premise to cloud who need to understand what they are migrating'},{n:'Financial services firms',d:'Banks with regulated data that cannot be moved without classification'},{n:'Life sciences companies',d:'Pharma and biotech with clinical trial data under FDA and EMA regulations'},{n:'Technology companies',d:'AI/ML companies that need clean, classified training data'}],
+    icp:[{l:'Data volume',v:'10TB+ of unclassified legacy data'},{l:'Pain point',v:'No metadata, no classification, no data owner — cannot migrate, delete, or govern without visibility'},{l:'Use case',v:'Pre-migration classification; AI training data governance; privacy audit support'},{l:'Buyer',v:'Chief Information Officer, Chief Privacy Officer, Chief Data Officer'}],
+    steps:[{t:'Phase 1: Surface scan',d:'Repository names, database names, and drive labels are inventoried and risk-rated. Clearly non-sensitive systems are skipped entirely.'},{t:'Phase 2: Metadata scan',d:'File names, folder paths, owner records, modification dates, and file type distributions are analyzed to locate likely sensitive data concentrations without opening documents.'},{t:'Phase 3: Content scan',d:'PII detection, IP classification, and regulated-data recognition run only on high-risk items from Phase 2.'},{t:'Owner mapping',d:'Every identified sensitive item is mapped to a business owner with a recommended remediation action: delete, restrict, encrypt, or migrate.'},{t:'AI data quality checkpoint',d:'For AI migration use cases, the process also removes duplicates, stale records, and sensitive data that should never enter a training pipeline or RAG knowledge base.'}],
+    outcome:'Know what\'s in your data before migrating it — or before feeding it to AI.' },
+
+  // M&A
+  { id:'m01', num:'16', cat:'M&A', pill:'pill-ma',
+    title:'M&A Due Diligence',
+    scenario:'A private equity firm signs a letter of intent to acquire a mid-sized SaaS company at a $280M valuation. The diligence window is three weeks before exclusivity expires. The target has 5 years of contracts across 800 vendor and customer agreements, 12 pending employment matters, and a data room organized by year rather than by topic. The deal team is three people.',
+    triggers:['Letter of intent signed; due diligence window opens','M&A target data room made available','Seller provides contract schedule for review','Board requests risk summary before deal approval'],
+    orgs:[{n:'Private equity firms',d:'Sponsors acquiring companies with compressed diligence timelines'},{n:'Strategic acquirers',d:'Corporate M&A teams acquiring competitors or adjacent businesses'},{n:'Investment banks',d:'Advisers preparing sell-side data rooms and buy-side diligence'},{n:'Venture-backed companies',d:'Growth-stage companies preparing for acquisition'}],
+    icp:[{l:'Deal size',v:'$50M+ acquisition value'},{l:'Pain point',v:'3-week diligence window is insufficient for manual contract review at scale'},{l:'Risk',v:'Change-of-control provisions, IP ownership gaps, undisclosed litigation exposure'},{l:'Buyer',v:'Managing Director (PE), VP Corporate Development, General Counsel'}],
+    steps:[{t:'Data room ingestion',d:'All target company documents are ingested from the data room regardless of format or organization.'},{t:'Contract extraction',d:'Key contract terms are automatically extracted: auto-renewal clauses, change-of-control provisions, liability caps, IP ownership language, and non-compete terms.'},{t:'Risk clause flagging',d:'Unusual or high-risk clauses are flagged for attorney review — including assignment restrictions that could affect the acquisition structure.'},{t:'Litigation cross-reference',d:'Litigation history is cross-referenced against contract obligations to identify potential liability exposure that survives close.'},{t:'Structured risk summary',d:'A deal risk summary is generated — giving the deal team the critical facts in days rather than weeks.'}],
+    outcome:'Five years of contracts reviewed in days — not the three weeks the deal team doesn\'t have.' },
+
+  { id:'m02', num:'17', cat:'M&A', pill:'pill-ma',
+    title:'Post-Merger Data Integration Audit',
+    scenario:'Six weeks after closing an acquisition, the acquiring company\'s legal team discovers that the target had three active litigation holds that were never disclosed — and that data subject to those holds was migrated into the acquirer\'s systems without any preservation controls. The acquirer is now potentially liable for spoliation of evidence in three cases it didn\'t know about.',
+    triggers:['Acquisition closes; integration begins','Target\'s legal team identifies undisclosed holds post-close','Post-close audit finds data governance violations','Regulatory inquiry post-close reveals undisclosed compliance issues','IT integration uncovers data retained past its schedule'],
+    orgs:[{n:'Strategic acquirers integrating large targets',d:'Corporate M&A teams managing complex post-close integrations'},{n:'Private equity sponsors',d:'PE firms integrating portfolio company acquisitions'},{n:'Financial services acquirers',d:'Banks and insurers acquiring regulated entities'},{n:'Healthcare system acquirers',d:'Hospital networks acquiring physician practices or smaller systems'}],
+    icp:[{l:'Deal size',v:'$100M+ acquisition where target\'s data governance was not fully diligenced'},{l:'Pain point',v:'Acquired entity has undisclosed holds, retention violations, or unlicensed data'},{l:'Risk',v:'Spoliation sanctions; regulatory penalties; integration delays'},{l:'Buyer',v:'General Counsel, Chief Compliance Officer, Chief Integration Officer'}],
+    steps:[{t:'Complete data audit of acquired entity',d:'The platform conducts a full data audit of the acquired entity\'s systems, mapping all data against the acquiring company\'s policies.'},{t:'Legal hold reconciliation',d:'All existing legal holds in the target\'s systems are identified and mapped. Undisclosed holds are flagged immediately.'},{t:'Retention schedule gap analysis',d:'Data retained past its schedule in the target\'s systems is identified and flagged for remediation.'},{t:'Unlicensed data identification',d:'Third-party data used without license, or data subject to restrictions that weren\'t disclosed, is surfaced.'},{t:'Prioritized remediation plan',d:'A prioritized remediation plan is produced for integration — addressing the highest-risk gaps first.'}],
+    outcome:'Surface every liability you just acquired — before it surfaces itself.' },
+
+  // CYBER
+  { id:'cy01', num:'18', cat:'Cybersecurity', pill:'pill-cyber',
+    title:'Insider Threat Detection',
+    scenario:'A senior analyst in the finance department learns on a Wednesday that she was passed over for promotion. By Thursday evening, the SIEM flags unusual after-hours access to the company\'s pricing database. On Friday morning, DLP alerts show 340 files transferred to a personal USB drive. No single team has connected the dots yet.',
+    triggers:['SIEM alert: unusual after-hours system access','DLP event: large file transfer to external device or email','HR event: employee passed over for promotion or placed on PIP','IT alert: access to systems outside normal role scope','Resignation received from employee with elevated data access'],
+    orgs:[{n:'Financial institutions',d:'Banks with proprietary trading strategies and client data at risk'},{n:'Technology companies',d:'Software firms with source code and product roadmap exposure'},{n:'Defense contractors',d:'Firms with classified or export-controlled data'},{n:'Healthcare systems',d:'Hospital networks with patient data and research IP at risk'}],
+    icp:[{l:'Industry',v:'Financial services, technology, defense, healthcare'},{l:'Data sources',v:'SIEM + DLP + email gateway + HR system — all connected'},{l:'Pain point',v:'Behavioral signals fragmented across security and HR systems; no team has the full picture'},{l:'Buyer',v:'CISO, General Counsel, Chief People Officer'}],
+    steps:[{t:'Telemetry ingestion',d:'The platform ingests telemetry from all connected security and communication systems — SIEM, DLP, email gateway, endpoint, HR.'},{t:'Behavioral baseline establishment',d:'A behavioral baseline is established for the employee based on historical activity patterns.'},{t:'Real-time anomaly scoring',d:'Deviations from the baseline are scored in real time as new events arrive.'},{t:'Automated evidence assembly',d:'When anomaly thresholds are crossed, the platform automatically assembles a complete evidence bundle: emails, file access logs, DLP events, and timeline.'},{t:'Legal and security escalation',d:'The case is escalated to legal and security teams with a risk rating and recommended immediate action.'},{t:'Forensic preservation',d:'All relevant data is preserved with forensic integrity for potential litigation or prosecution.'}],
+    outcome:'The full picture assembled automatically — before the damage is done.' },
+
+  { id:'cy02', num:'19', cat:'Cybersecurity', pill:'pill-cyber',
+    title:'Breach Incident Response',
+    scenario:'At 2:14 AM on a Tuesday, the SOC detects ransomware propagating across the corporate network. By 2:30 AM, 47 servers are encrypted. The GDPR clock starts at detection: 72 hours to notify the supervisory authority. The CCPA clock starts at the same moment: 45 days to notify affected California residents. Legal needs to know what data was taken — in hours, not days.',
+    triggers:['Ransomware or malware detected on corporate network','Data exfiltration detected by DLP or network monitoring','SOC escalates active intrusion event to legal','Law enforcement notifies company of breach involving its data','Third-party vendor notifies company of breach affecting shared data'],
+    orgs:[{n:'Healthcare systems',d:'Covered entities with HIPAA breach notification obligations'},{n:'Financial institutions',d:'Banks with GLBA, state law, and SEC cyber disclosure obligations'},{n:'Retailers',d:'Companies with large consumer PII databases and CCPA exposure'},{n:'Technology companies',d:'SaaS and cloud companies with GDPR exposure for EU customer data'}],
+    icp:[{l:'Regulation exposure',v:'GDPR (72-hour), CCPA (45-day), HIPAA (60-day), state breach laws'},{l:'Pain point',v:'Forensic analysis of hundreds of endpoints is manual and too slow for notification deadlines'},{l:'Risk',v:'GDPR fines up to 4% of global revenue; SEC cyber disclosure violations; class action exposure'},{l:'Buyer',v:'CISO, General Counsel, Chief Privacy Officer, outside breach response counsel'}],
+    steps:[{t:'Incident detection & legal notification',d:'The SOC escalates the incident to legal. The breach response team is activated and outside breach counsel is engaged.'},{t:'Automated endpoint triage',d:'The platform automatically triages all affected systems, identifying which data stores were accessed during the attack window.'},{t:'Data classification',d:'The types of data involved are classified: PII, health records, financial data, IP — by system and by data subject category.'},{t:'Data subject mapping',d:'Impacted data subjects are mapped by jurisdiction — identifying GDPR, CCPA, HIPAA, and state notification requirements.'},{t:'Jurisdiction-specific notification drafting',d:'Breach notification reports are drafted automatically for each applicable jurisdiction.'},{t:'Forensic package assembly',d:'The complete forensic package — evidence of what was accessed, by whom, and when — is assembled for regulators and outside counsel.'},{t:'Notification delivery',d:'Notifications are delivered within each applicable statutory deadline.'}],
+    outcome:'GDPR\'s 72-hour clock starts ticking the moment you detect a breach. Be ready before it starts.' },
+
+  // IP
+  { id:'ip01', num:'20', cat:'IP & Contracts', pill:'pill-ip',
+    title:'IP Theft Investigation',
+    scenario:'Three days before submitting her resignation, a senior scientist emails herself 14 attachments containing proprietary synthesis protocols and batch production formulas — to her personal Gmail account. The DLP system flags it. By Monday morning, she has joined a direct competitor. Legal has 48 hours to build a case before the window for a TRO closes.',
+    triggers:['DLP alert flags external email of sensitive documents','IT detects large upload to personal cloud storage','Employee resignation triggers pre-departure data review','Competitor product launch appears to use proprietary technology','Former employee contact with current employees raises IP concern'],
+    orgs:[{n:'Life sciences companies',d:'Pharma and biotech with proprietary formulas, synthesis protocols, and clinical data'},{n:'Technology companies',d:'Software firms with source code and product architecture at risk'},{n:'Financial institutions',d:'Quantitative trading firms with proprietary models and strategies'},{n:'Manufacturing companies',d:'Firms with trade secrets in production processes and material formulas'}],
+    icp:[{l:'Industry',v:'Life sciences, technology, financial services, manufacturing'},{l:'IP type',v:'Trade secrets, source code, formulas, customer lists, pricing models'},{l:'Pain point',v:'Building a defensible case requires correlating DLP, email, access logs, and file hashes — days of manual work'},{l:'Buyer',v:'General Counsel, Chief IP Counsel, outside IP litigation counsel'}],
+    steps:[{t:'DLP alert received & investigation authorized',d:'The DLP event is escalated to legal. Outside IP counsel is engaged and the investigation window is defined.'},{t:'Multi-source correlation',d:'The platform correlates every relevant data source: DLP alerts, email logs, access records, file hash comparisons.'},{t:'Exfiltration sequence reconstruction',d:'The complete exfiltration sequence is reconstructed with precise timestamps.'},{t:'IP scope quantification',d:'The scope and estimated value of the stolen IP is calculated — trade secret categories, competitive sensitivity, estimated replacement cost.'},{t:'Additional location scan',d:'The platform checks whether any exfiltrated data was forwarded or stored in additional locations.'},{t:'Court-ready forensic report',d:'A court-ready forensic report is generated with full chain-of-custody documentation — ready for TRO or preliminary injunction application.'}],
+    outcome:'A court-ready forensic case, built automatically, before counsel is even fully briefed.' },
+
+  { id:'ip02', num:'21', cat:'IP & Contracts', pill:'pill-ip',
+    title:'Contract Obligation Tracking',
+    scenario:'A legal operations team managing 847 active vendor and customer contracts wants to identify every agreement with an auto-renewal clause expiring in the next 90 days — before those renewals automatically lock the company into another year at above-market rates. The contracts are spread across four repositories, two file formats, and three legacy systems. No single system of record exists.',
+    triggers:['Annual contract review cycle initiated','Finance team flags unexpected contract renewal costs','Procurement requests visibility into upcoming renewal obligations','M&A due diligence requires contract inventory','GC requests contract risk summary across all active agreements'],
+    orgs:[{n:'Large enterprises',d:'Companies with hundreds of vendor and customer contracts across multiple repositories'},{n:'Technology companies',d:'SaaS companies with complex vendor and customer contract portfolios'},{n:'Private equity portfolio companies',d:'Companies with contract portfolios requiring optimization post-acquisition'},{n:'Healthcare systems',d:'Hospital networks with complex vendor, payor, and physician contracts'}],
+    icp:[{l:'Contract volume',v:'200+ active agreements'},{l:'Pain point',v:'Contracts in inconsistent formats across multiple repositories; no single system of record; missed renewals cost $500K+ annually'},{l:'Risk',v:'Auto-renewal lock-in at above-market rates; missed termination windows'},{l:'Buyer',v:'General Counsel, VP Legal Operations, Chief Procurement Officer'}],
+    steps:[{t:'Contract ingestion',d:'All contracts are ingested regardless of format or storage location — PDFs, Word documents, legacy system exports, scanned agreements.'},{t:'Key term extraction',d:'Key dates, renewal terms, termination windows, escalation clauses, and commercial obligations are extracted using NLP.'},{t:'Normalization & structuring',d:'All extracted data is normalized into a structured, searchable tracker regardless of source format.'},{t:'90/60/30-day alert issuance',d:'Contract owners are automatically alerted 90, 60, and 30 days before critical deadlines — with a plain-language summary of what action is required.'},{t:'Continuous monitoring',d:'New contracts are ingested as they are executed. Amendments update the relevant obligations automatically.'}],
+    outcome:'Never miss an auto-renewal again — across 800+ active agreements.' },
+
+  // LITIGATION
+  { id:'l01', num:'22', cat:'Litigation', pill:'pill-lit',
+    title:'Litigation Hold Management',
+    scenario:'A class action lawsuit naming the company as a defendant is served at 4:47 PM on a Friday. By Monday morning, legal must have issued preservation notices to an estimated 140 custodians across seven countries — and must begin tracking whether each of them actually complies, for the duration of a matter that could last three years.',
+    triggers:['Complaint or summons served on company','Demand letter received threatening imminent litigation','Government investigation notice received','Internal investigation reveals potential litigation exposure','Arbitration demand filed'],
+    orgs:[{n:'Fortune 500 companies',d:'Large enterprises managing multiple simultaneous litigation matters'},{n:'Financial institutions',d:'Banks with constant regulatory and civil litigation exposure'},{n:'Healthcare systems',d:'Hospital networks with malpractice and employment litigation portfolios'},{n:'Technology companies',d:'Tech firms with IP, regulatory, and employment litigation across jurisdictions'}],
+    icp:[{l:'Matter volume',v:'5+ active litigations simultaneously'},{l:'Custodian count',v:'20+ custodians per matter; custodians in multiple countries'},{l:'Pain point',v:'Manual hold notices get ignored; data gets deleted; spreadsheet tracking fails at scale'},{l:'Buyer',v:'General Counsel, Chief Litigation Counsel, Director of Legal Operations'}],
+    steps:[{t:'Matter opened & custodian identification',d:'The complaint is analyzed and the platform automatically identifies all relevant custodians based on the allegations and relevant business units.'},{t:'Jurisdiction-appropriate hold notices',d:'Legal hold notices are issued automatically, tailored to the jurisdiction of each custodian — including required language for EU, UK, and APAC recipients.'},{t:'Acknowledgment tracking',d:'Custodian acknowledgments are tracked in real time. Non-responders are automatically escalated — first to their manager, then to GC — with the escalation logged and timestamped.'},{t:'Ongoing compliance monitoring',d:'Throughout the matter\'s lifetime, the platform monitors for data deletion events by hold custodians and alerts legal immediately if a custodian\'s data is at risk.'},{t:'Hold release & documentation',d:'When the matter closes, hold releases are issued and the complete audit trail is archived.'}],
+    outcome:'Every notice tracked, every acknowledgment logged, zero spoliation risk.' },
+
+  { id:'l02', num:'23', cat:'Litigation', pill:'pill-lit',
+    title:'Early Case Assessment (ECA)',
+    scenario:'A long-standing vendor sends a demand letter claiming breach of contract and threatening $4M in damages. Before deciding whether to settle, fight, or counterclaim, the General Counsel needs a clear-eyed assessment of the company\'s actual exposure — based on what the documents say, not what anyone remembers. Outside counsel has quoted $280K just to review enough documents to give an opinion.',
+    triggers:['Demand letter or pre-litigation notice received','Complaint served and litigation strategy decision required','Insurance carrier requests exposure analysis before coverage decision','Board requests litigation risk summary before earnings call','Mediation scheduled requiring damages model preparation'],
+    orgs:[{n:'Large enterprises facing commercial disputes',d:'Companies with vendor, customer, and partner disputes requiring rapid exposure assessment'},{n:'Financial institutions',d:'Banks assessing exposure in securities and commercial litigation'},{n:'Technology companies',d:'Tech firms evaluating IP and contract disputes before committing to litigation'},{n:'Insurance companies',d:'Carriers evaluating claim merit before coverage decisions'}],
+    icp:[{l:'Claim value',v:'$1M+ dispute where litigation vs. settlement decision requires factual foundation'},{l:'Pain point',v:'Cannot make a strategic decision without reviewing documents; reviewing documents before ECA is expensive and slow'},{l:'Risk',v:'Committing to costly litigation on a losing case; settling a winning case for too little'},{l:'Buyer',v:'General Counsel, Chief Litigation Counsel, outside litigation partner'}],
+    steps:[{t:'Scope definition',d:'The demand letter or complaint is analyzed to identify key factual claims, the relevant time period, key custodians, and systems likely to hold relevant documents.'},{t:'Targeted collection',d:'Documents related to the vendor relationship and disputed transactions are collected — without a full preservation sweep.'},{t:'Factual issue identification',d:'The platform identifies the key factual disputes and locates the documents most directly bearing on each issue.'},{t:'Claim strength evaluation',d:'The vendor\'s claims are evaluated against the internal documentary record — surfacing documents that support the defense and those that create exposure.'},{t:'Full-review cost modeling',d:'The platform estimates the likely cost of full document review if the matter proceeds, and models the probable discovery scope.'},{t:'Decision memo generation',d:'A structured decision memo is produced — giving legal leadership the information needed to choose between settlement, defense, or counterclaim.'}],
+    outcome:'Settle, fight, or counter — with the facts, not assumptions.' },
+
+  { id:'l03', num:'24', cat:'Litigation', pill:'pill-lit',
+    title:'eDiscovery Collection & Preservation Tracking',
+    scenario:'Legal identifies 14 data sources that must be preserved for an active securities litigation matter. None have direct system connectors — they include three legacy on-premise servers, two third-party SaaS tools with no API, and physical devices held by remote employees in four states. Each requires a human data steward to manually perform the preservation. There is no system to track whether any of them actually do it.',
+    triggers:['Legal hold issued to custodians without automated connectors','Court order requires preservation of specific data sources','Opposing counsel challenges adequacy of preservation efforts','Legacy system identified as containing relevant data','Remote employee devices must be preserved'],
+    orgs:[{n:'Large enterprises with legacy infrastructure',d:'Companies with on-premise servers and legacy applications outside the platform\'s connector library'},{n:'Financial institutions',d:'Banks with proprietary trading systems and legacy databases'},{n:'Healthcare systems',d:'Hospital networks with legacy EHR systems and medical device data'},{n:'Government agencies',d:'Agencies with disconnected systems and paper-based record-keeping'}],
+    icp:[{l:'Infrastructure',v:'Mix of cloud and on-premise systems; some without direct API connectors'},{l:'Pain point',v:'No system to assign, track, and document manual preservation actions; spoliation risk'},{l:'Risk',v:'Spoliation sanctions; adverse inference instructions; case-dispositive findings'},{l:'Buyer',v:'General Counsel, Director of eDiscovery, outside litigation counsel'}],
+    steps:[{t:'Data source identification',d:'All data sources requiring preservation are identified, including those without automated connectors.'},{t:'Steward assignment & instruction',d:'A formal preservation request is created for each source and assigned to the relevant data steward with specific instructions and deadlines.'},{t:'Automated deadline tracking',d:'The platform tracks completion status for every request in real time. Overdue requests trigger automatic escalation.'},{t:'Steward action logging',d:'Stewards log their preservation actions — what was preserved, when, from where, and the method used — directly into the platform.'},{t:'Chain-of-custody documentation',d:'Every action is timestamped in an unalterable audit trail, maintaining a defensible chain of custody even without automated connectors.'}],
+    outcome:'Defensible chain of custody — documented for every data source, from request to collection — even when there is no automated connector.' },
+
+  { id:'l04', num:'25', cat:'Litigation', pill:'pill-lit',
+    title:'Document Review & Categorization',
+    scenario:'A commercial dispute generates 2.4 million documents after collection. Outside counsel quotes $1.8M for manual first-pass review. The legal team has six weeks before the court\'s production deadline and a litigation budget that doesn\'t accommodate $1.8M in review fees before the case has even been evaluated on the merits.',
+    triggers:['Discovery collection completed and review population defined','Opposing counsel serves broad discovery requests','Court order requires production within compressed timeline','Large document population exceeds manual review capacity','Outside counsel review costs exceed litigation budget'],
+    orgs:[{n:'Large enterprises with litigation volume',d:'Companies facing frequent large-scale document review in litigation'},{n:'Financial institutions',d:'Banks with regulatory and litigation discovery involving millions of documents'},{n:'Technology companies',d:'Tech firms in IP litigation with large technical document populations'},{n:'Law firms with litigation practices',d:'Outside counsel handling large document review engagements'}],
+    icp:[{l:'Document volume',v:'100,000+ documents per matter'},{l:'Review budget',v:'$500K+ review spend per matter'},{l:'Pain point',v:'Linear attorney review is too expensive and too slow; no way to reduce volume before attorneys start'},{l:'Buyer',v:'General Counsel, Chief Litigation Counsel, Director of eDiscovery'}],
+    steps:[{t:'Document population loading',d:'The complete document population is loaded into the review platform. Metadata, extracted text, and document families are confirmed.'},{t:'Concept-based search & clustering',d:'The platform runs concept-based search across the full population, clustering documents by topic and factual theme.'},{t:'AI first-pass classification',d:'Every document is classified: likely responsive, likely non-responsive, likely privileged — based on content, sender-recipient patterns, and concept relevance.'},{t:'Near-duplicate batching',d:'Near-duplicate documents are batched so a single attorney decision propagates to all substantively identical variants.'},{t:'Continuous active learning',d:'As attorneys review and code documents, the AI model continuously learns from each decision and refines its predictions.'},{t:'Privilege auto-identification',d:'Privileged documents are identified as a natural output of the review workflow — without a separate privilege pass.'},{t:'Volume reduction validation',d:'The platform validates that the review population has been reduced by 60–80% from the original collection before attorneys begin.'},{t:'Production set assembly',d:'The reviewed, responsive, non-privileged documents are assembled into the production set with privilege log — ready for production.'}],
+    outcome:'2.4 million documents reduced to a reviewable, defensible population — at a fraction of the cost and time of linear review.' },
+
+  { id:'l05', num:'26', cat:'Litigation', pill:'pill-lit',
+    title:'Deposition & Witness Preparation',
+    scenario:'Trial counsel has 12 depositions scheduled across three weeks in a complex securities fraud case. The review population contains 340,000 documents. For each witness, counsel needs to know: every document they touched, every place their testimony will conflict with the record, and every document opposing counsel is likely to use against them. Manually building preparation packages for 12 witnesses from 340,000 documents is not feasible in three weeks.',
+    triggers:['Depositions scheduled in active litigation','Witness list exchanged with opposing counsel','30(b)(6) corporate representative deposition noticed','Expert witness deposition scheduled','Trial preparation phase initiated'],
+    orgs:[{n:'Large enterprises in complex litigation',d:'Companies with multiple witnesses in multi-party or class action litigation'},{n:'Financial institutions',d:'Banks with trader and executive depositions in regulatory or securities litigation'},{n:'Healthcare systems',d:'Hospital networks with physician depositions in malpractice matters'},{n:'Law firms',d:'Outside counsel preparing witnesses for depositions in any complex matter'}],
+    icp:[{l:'Deposition volume',v:'5+ depositions per matter; multiple matters active simultaneously'},{l:'Document population',v:'50,000+ documents in the matter'},{l:'Pain point',v:'Counsel spends hours manually reviewing all communications per witness; witnesses blindsided at deposition'},{l:'Buyer',v:'Outside litigation partner, in-house litigation counsel, litigation operations'}],
+    steps:[{t:'Witness identification',d:'Each deponent is identified. The platform maps the witness to all documents where they appear as author, recipient, or subject.'},{t:'Witness-specific document profile',d:'A complete document profile is built for each witness: every communication they authored or received, every document relevant to their role.'},{t:'Statement-to-document conflict detection',d:'The witness\'s prior statements are compared against the documentary record. Conflicts are flagged with the specific document and inconsistency identified.'},{t:'Key event timeline generation',d:'A chronological key event timeline is generated — showing the witness\'s involvement in disputed events and communications around critical dates.'},{t:'High-risk exhibit identification',d:'The platform identifies the highest-risk exhibits: documents they authored that are most damaging, documents that contradict expected testimony.'},{t:'Opposing counsel exhibit prediction',d:'Based on the theory of the case, the platform generates a ranked list of documents most likely to be used by opposing counsel.'},{t:'Structured preparation package delivery',d:'Counsel receives a structured preparation package: document profile, conflict analysis, key event timeline, and predicted opposing counsel exhibits.'}],
+    outcome:'No witness walks into deposition blindsided by their own documents — and counsel walks in knowing exactly what opposing counsel is going to use.' },
+
+  { id:'l06', num:'27', cat:'Litigation', pill:'pill-lit',
+    title:'Cross-Matter Analytics & Spend Management',
+    scenario:'A Fortune 500 company is simultaneously managing 47 active litigations across eight law firms. The General Counsel has just been asked by the CFO to reduce outside counsel spend by 15% without reducing coverage. She has no single view of what is being spent, by whom, on what, or where the same custodian or document set is being collected multiple times across different matters.',
+    triggers:['Legal department budget review requires litigation spend analysis','GC requests cross-matter visibility into outside counsel spend','Redundant collection costs identified across multiple matters','Outside counsel invoice review finds billing anomalies','Board or audit committee requests legal spend reporting'],
+    orgs:[{n:'Fortune 500 legal departments',d:'Large in-house teams managing dozens of matters across multiple outside firms'},{n:'Financial institutions',d:'Banks with constant regulatory and civil litigation across dozens of matters'},{n:'Healthcare systems',d:'Hospital networks with high-volume malpractice and employment litigation portfolios'},{n:'Insurance companies',d:'Carriers managing large claim portfolios with outside defense counsel'}],
+    icp:[{l:'Matter volume',v:'10+ active matters simultaneously'},{l:'Outside counsel spend',v:'$10M+ annual outside counsel spend'},{l:'Pain point',v:'No single view of spend; duplicate collection costs; no mechanism to identify custodian overlap'},{l:'Buyer',v:'General Counsel, Director of Legal Operations, CFO'}],
+    steps:[{t:'Cross-matter data aggregation',d:'Data from all active matters is aggregated into a single view — matter status, custodians, collection scope, and spend to date.'},{t:'Custodian overlap mapping',d:'The platform maps custodian overlap between cases — identifying where the same individual has been collected multiple times for different matters.'},{t:'Collection reuse identification',d:'Document sets already collected for one matter that are relevant to another are identified — eliminating redundant collection costs.'},{t:'Spend dashboard',d:'A real-time dashboard shows spend by matter, firm, phase, and task code — with comparison to budgeted amounts.'},{t:'Billing anomaly detection',d:'Invoice line items that deviate from billing guidelines or benchmark rates are flagged automatically for GC review.'},{t:'Cross-matter insight reporting',d:'Patterns across the portfolio are surfaced: repeat custodians, recurring legal issues, high-cost outside counsel.'}],
+    outcome:'47 matters. 8 firms. One view — and no duplicate collection spend.' },
+
+  { id:'l07', num:'28', cat:'Litigation', pill:'pill-lit',
+    title:'Settlement & Damages Analysis',
+    scenario:'A products liability class action involving 11,800 claimants is approaching a mediation deadline. The legal team needs to know the realistic settlement range, what it looks like at different participation rates, which claims are strongest, and what documents the mediator is most likely to focus on — in 10 days, before the mediation session.',
+    triggers:['Mediation scheduled in active class action or complex litigation','Court orders parties to participate in settlement conference','Insurance carrier requests damages model for coverage negotiation','Board requests exposure range before earnings call disclosure','Trial date set; settlement analysis required before jury risk assessment'],
+    orgs:[{n:'Fortune 500 companies in class actions',d:'Companies defending products liability, securities fraud, or consumer class actions'},{n:'Financial institutions',d:'Banks in securities fraud or consumer finance class actions'},{n:'Healthcare systems',d:'Hospital networks in malpractice class actions or mass tort litigation'},{n:'Technology companies',d:'Tech firms in privacy, antitrust, or employment class actions'}],
+    icp:[{l:'Claimant count',v:'500+ claimants in a class action or mass tort'},{l:'Claim value',v:'$10M+ aggregate exposure'},{l:'Pain point',v:'Calculating exposure across thousands of claimants requires integrating claim, product, financial, and litigation history data from disconnected systems'},{l:'Buyer',v:'General Counsel, Chief Litigation Counsel, outside class action defense counsel'}],
+    steps:[{t:'Claim data integration',d:'Claim data, product records, purchase histories, and injury reports are integrated from all relevant systems.'},{t:'Dynamic damages model construction',d:'A dynamic damages model is built across all claimants — calculating per-claim exposure, aggregate exposure, and exposure by claim type and jurisdiction.'},{t:'Settlement scenario modeling',d:'Multiple settlement scenarios are modeled: by participation rate, claim type, jurisdiction, and settlement structure.'},{t:'Mediator focus identification',d:'The documentary record most relevant to the mediator\'s likely focus areas is identified.'},{t:'Settlement range output',d:'A data-driven settlement range is produced, with scenario analysis showing the cost of different outcomes versus continued litigation.'}],
+    outcome:'Walk into mediation with a data-driven exposure range — not instinct and spreadsheets.' }
+];
+
+// ── MODAL ──
+function openModal(id) {
+  const pb = PB.find(p => p.id === id);
+  if (!pb) return;
+  document.getElementById('m-eyebrow').textContent = 'Playbook ' + pb.num;
+  document.getElementById('m-title').textContent = pb.title;
+  const cat = document.getElementById('m-cat');
+  cat.textContent = pb.cat;
+  cat.className = 'modal-cat-pill ' + pb.pill;
+  document.getElementById('m-outcome').textContent = pb.outcome;
+
+  const steps = pb.steps.map((s, i) => `
+    <li class="step-item">
+      <div class="step-left">
+        <div class="step-circle">${i+1}</div>
+        ${i < pb.steps.length - 1 ? '<div class="step-line"></div>' : ''}
+      </div>
+      <div class="step-body">
+        <div class="step-title">${s.t}</div>
+        <div class="step-desc">${s.d}</div>
+      </div>
+    </li>`).join('');
+
+  const orgs = pb.orgs.map(o => `<div class="org-item"><div class="org-item-name">${o.n}</div><div class="org-item-desc">${o.d}</div></div>`).join('');
+  const icps = pb.icp.map(i => `<div class="icp-item"><div class="icp-item-label">${i.l}</div><div class="icp-item-val">${i.v}</div></div>`).join('');
+  const triggers = pb.triggers.map(t => `<span class="trigger-chip">${t}</span>`).join('');
+
+  document.getElementById('modal-body').innerHTML = `
+    <div class="modal-left">
+      <div class="modal-section">
+        <div class="ms-label">Real-world scenario</div>
+        <div class="scenario-box"><p>${pb.scenario}</p></div>
+      </div>
+      <div class="modal-section">
+        <div class="ms-label">What triggers this</div>
+        <div class="trigger-list">${triggers}</div>
+      </div>
+      <div class="modal-section">
+        <div class="ms-label">Organizations impacted</div>
+        <div class="org-grid">${orgs}</div>
+      </div>
+      <div class="modal-section">
+        <div class="ms-label">Ideal customer profile</div>
+        <div class="icp-grid">${icps}</div>
+      </div>
+    </div>
+    <div class="modal-right">
+      <div class="modal-right-header">
+        <div class="ms-label" style="margin-bottom:0">Step-by-step workflow</div>
+      </div>
+      <ul class="steps-list">${steps}</ul>
+    </div>
+  `;
+  document.getElementById('modal-bg').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal-bg').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modal-bg').addEventListener('click', e => { if (e.target === document.getElementById('modal-bg')) closeModal(); });
+document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Wire cards to modal by matching index number
+document.querySelectorAll('.pb-card').forEach(card => {
+  const idxText = card.querySelector('.pb-index').textContent.trim();
+  const num = idxText.padStart(2, '0');
+  card.addEventListener('click', () => {
+    const pb = PB.find(p => p.num === num);
+    if (pb) openModal(pb.id);
+  });
+});
+
+</script>
+</body>
+</html>
