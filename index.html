@@ -768,12 +768,7 @@ footer {
       <h1>One Platform.<br><em>Enterprise-wide reach.</em></h1>
       <p class="masthead-desc">A complete guide to how leading organizations deploy eDiscovery intelligence across every function that touches data — from regulatory response to M&A diligence.</p>
     </div>
-    <div class="masthead-stats">
-      <div class="stat-block">
-        <span class="stat-num">28</span>
-        <span class="stat-label">Playbooks</span>
-      </div>
-    </div>
+
   </div>
   <div class="masthead-rule"></div>
 </div>
@@ -790,7 +785,7 @@ footer {
     <button class="fbtn" data-cat="ip">IP &amp; Contracts <span class="fbtn-count">(2)</span></button>
     <button class="fbtn" data-cat="lit">Litigation <span class="fbtn-count">(7)</span></button>
     <div class="filter-spacer"></div>
-    <div class="filter-count"><strong>28</strong> playbooks</div>
+
   </div>
 </nav>
 
@@ -1034,7 +1029,6 @@ footer {
         <div class="pb-value">47 matters. 8 firms. One view — and no duplicate collection spend.</div>
       </div>
       <div class="pb-card">
-        <div class="pb-index">28</div>
         <div class="pb-name">Settlement &amp; Damages Analysis</div>
         <div class="pb-desc">Integrates claim data, product records, financial exposure calculations, and prior settlement comparables to build a dynamic damages model across all claimants. Models multiple settlement scenarios by participation rate, claim type, and jurisdiction. Identifies the documentary record most relevant to the mediator's likely focus areas.</div>
         <div class="pb-value">Walk into mediation with a data-driven exposure range — not instinct and spreadsheets.</div>
@@ -1330,7 +1324,7 @@ const PB = [
     steps:[{t:'Cross-matter data aggregation',d:'Data from all active matters is aggregated into a single view — matter status, custodians, collection scope, and spend to date.'},{t:'Custodian overlap mapping',d:'The platform maps custodian overlap between cases — identifying where the same individual has been collected multiple times for different matters.'},{t:'Collection reuse identification',d:'Document sets already collected for one matter that are relevant to another are identified — eliminating redundant collection costs.'},{t:'Spend dashboard',d:'A real-time dashboard shows spend by matter, firm, phase, and task code — with comparison to budgeted amounts.'},{t:'Billing anomaly detection',d:'Invoice line items that deviate from billing guidelines or benchmark rates are flagged automatically for GC review.'},{t:'Cross-matter insight reporting',d:'Patterns across the portfolio are surfaced: repeat custodians, recurring legal issues, high-cost outside counsel.'}],
     outcome:'47 matters. 8 firms. One view — and no duplicate collection spend.' },
 
-  { id:'l07', num:'28', cat:'Litigation', pill:'pill-lit',
+  { id:'l07', num:'', cat:'Litigation', pill:'pill-lit',
     title:'Settlement & Damages Analysis',
     scenario:'A products liability class action involving 11,800 claimants is approaching a mediation deadline. The legal team needs to know the realistic settlement range, what it looks like at different participation rates, which claims are strongest, and what documents the mediator is most likely to focus on — in 10 days, before the mediation session.',
     triggers:['Mediation scheduled in active class action or complex litigation','Court orders parties to participate in settlement conference','Insurance carrier requests damages model for coverage negotiation','Board requests exposure range before earnings call disclosure','Trial date set; settlement analysis required before jury risk assessment'],
@@ -1344,7 +1338,7 @@ const PB = [
 function openModal(id) {
   const pb = PB.find(p => p.id === id);
   if (!pb) return;
-  document.getElementById('m-eyebrow').textContent = 'Playbook ' + pb.num;
+  document.getElementById('m-eyebrow').textContent = pb.num ? 'Playbook ' + pb.num : pb.cat;
   document.getElementById('m-title').textContent = pb.title;
   const cat = document.getElementById('m-cat');
   cat.textContent = pb.cat;
@@ -1408,10 +1402,11 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 
 // Wire cards to modal by matching index number
 document.querySelectorAll('.pb-card').forEach(card => {
-  const idxText = card.querySelector('.pb-index').textContent.trim();
-  const num = idxText.padStart(2, '0');
+  const idxEl = card.querySelector('.pb-index');
+  const idxText = idxEl ? idxEl.textContent.trim() : '';
+  const num = idxText ? idxText.padStart(2, '0') : '';
   card.addEventListener('click', () => {
-    const pb = PB.find(p => p.num === num);
+    const pb = num ? PB.find(p => p.num === num) : PB.find(p => p.num === '');
     if (pb) openModal(pb.id);
   });
 });
